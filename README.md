@@ -1,12 +1,12 @@
 # recipe-app
-A recipe app where users can create and modify recipes containing ingredients, cooking time, and with a diﬃculty parameter automatically calculated by the application. Users can also search for recipes by ingredient.
+A recipe app built on Django where users can create and modify recipes with ingredients, description, instructions, cooking time, and with a diﬃculty parameter automatically calculated by the application. Users can also search for recipes by ingredient and save their favourites.
 
 ## Features
 
 - **Recipe Management**
   - Create recipes with name, description, ingredients, cooking time, instructions, and automatic difficulty calculation.
   - View all recipes in a clean, readable format.
-  - Edit and update recipes (planned for future versions).
+  - Edit and update recipes.
 
 - **User Interaction**
   - Users can mark recipes as favorites and like recipes.
