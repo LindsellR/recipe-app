@@ -1,0 +1,48 @@
+<!-- recipes/templates/recipes/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Recipe App{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'recipes/css/styles.css' %}">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header-banner">
+        <div class="header-left">
+            <img src="/media/recipe_app_icon.jpg" alt="Recipe App Icon" class="app-icon">
+            <span class="app-title">Recipe App</span>
+        </div>
+
+        <form method="get" action="{% url 'search:search_recipes' %}" class="header-search">
+            <input type="text" name="q" placeholder="Search by ingredients">
+            <select name="meal_type">
+                <option value="all">Any meal</option>
+                <option value="breakfast">Breakfast</option>
+                <option value="lunch">Lunch</option>
+                <option value="dinner">Dinner</option>
+                <option value="snack">Snack</option>
+                <option value="drink">Drink</option>
+                <option value="dessert">Dessert</option>
+            </select>
+            <button type="submit">Search</button>
+        </form>
+    </header>
+
+
+    <!-- Main content -->
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer style="text-align:center; padding:20px; background:#d4edda; margin-top:20px;">
+        <p>© 2025 Recipe App</p>
+    </footer>
+</body>
+
+</html>

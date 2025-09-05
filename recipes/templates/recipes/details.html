@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="recipe-detail-card">
+    <h1>{{ recipe.name }}</h1>
+
+    <div class="recipe-detail-content">
+        {% if recipe.pic %}
+            <img src="{{ recipe.pic.url }}" alt="{{ recipe.name }}" class="recipe-detail-image">
+        {% endif %}
+
+        <div class="recipe-detail-info">
+            {% if recipe.description %}
+                <p><strong>Description:</strong> {{ recipe.description }}</p>
+            {% endif %}
+            {% if recipe.ingredients %}
+                <p><strong>Ingredients:</strong> {{ recipe.ingredients }}</p>
+            {% endif %}
+            {% if recipe.instructions %}
+                <p><strong>Instructions:</strong> {{ recipe.instructions }}</p>
+            {% endif %}
+            <p><strong>Preparation Time:</strong> {{ recipe.prep_time }} min</p>
+            <p><strong>Cooking Time:</strong> {{ recipe.cooking_time }} min</p>
+            <p><strong>Difficulty:</strong> {{ recipe.difficulty }}</p>
+        </div>
+    </div>
+
+    <a href="{% url 'recipes:recipe_list' %}" class="btn-back">← Back to all recipes</a>
+</div>
+{% endblock %}
+

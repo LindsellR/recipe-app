@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome | Recipe App{% endblock %}
+
+{% block content %}
+<section class="main-banner" style="background-image: url('{{ MEDIA_URL }}welcome.jpg');">
+    <div class="banner-content">
+        <h1>Welcome!</h1>
+        <a href="{% url 'recipes:recipe_list' %}" class="btn-browse">Browse Recipes</a>
+    </div>
+</section>
+{% endblock %}

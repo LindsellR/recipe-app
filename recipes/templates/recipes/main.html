@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>All Recipes</h1>
+<div class="card-container">
+    {% for recipe in recipes %}
+        {% include "recipes/recipe_card.html" %}
+    {% empty %}
+        <p>No recipes available.</p>
+    {% endfor %}
+</div>
+{% endblock %}

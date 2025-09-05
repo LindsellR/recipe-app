@@ -1,6 +1,18 @@
 from django.shortcuts import render
+from .models import Recipe
+from django.views.generic import ListView, DetailView
 
-# Create your views here.
+#Create your views here.
 
 def welcome(request):
-   return render(request, 'recipes/recipes_home.html')
+    return render(request, "recipes/welcome.html")
+
+class RecipeListView(ListView):           #class-based view
+   model = Recipe                         #specify model
+   template_name = 'recipes/main.html'    #specify template
+   context_object_name = 'recipes'
+
+class RecipeDetailView(DetailView):
+    model = Recipe
+    template_name = 'recipes/details.html' 
+    context_object_name = 'recipe'         # accessible in template as 'recipe'
