@@ -23,13 +23,13 @@ class RecipeViewsTest(TestCase):
             cooking_time=5
         )
 
-    # -------------------------
+
     # List & Detail Views Tests
-    # -------------------------
+
     def test_recipe_list_view_status_code_and_template(self):
         response = self.client.get(reverse("recipes:recipe_list"))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "recipes/main.html")  # matches your template
+        self.assertTemplateUsed(response, "recipes/main.html")  
         self.assertContains(response, "Spaghetti Bolognese")
         self.assertContains(response, "Pancakes")
 
@@ -43,25 +43,25 @@ class RecipeViewsTest(TestCase):
         response = self.client.get(reverse("recipes:recipe_detail", args=[999]))
         self.assertEqual(response.status_code, 404)
 
-  # -------------------------
+
     # Search Tests
-    # -------------------------
+
     def test_search_returns_matching_results(self):
         response = self.client.get(reverse("search:search_recipes"), {"q": "Flour"})
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "recipes/main.html")  # matches your actual template
+        self.assertTemplateUsed(response, "recipes/main.html") 
         self.assertContains(response, "Pancakes")
         self.assertNotContains(response, "Spaghetti Bolognese")
 
     def test_search_no_results(self):
         response = self.client.get(reverse("search:search_recipes"), {"q": "Sushi"})
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "recipes/main.html")  # matches your actual template
-        self.assertContains(response, "No recipes available.")  # matches main.html message
+        self.assertTemplateUsed(response, "recipes/main.html")  
+        self.assertContains(response, "No recipes available.")  
 
-    # -------------------------
+
     # Model Tests
-    # -------------------------
+
     def test_str_method(self):
         recipe = Recipe.objects.get(id=self.recipe1.id)
         expected = (
@@ -78,9 +78,9 @@ class RecipeViewsTest(TestCase):
         max_length = self.recipe1._meta.get_field('difficulty').max_length
         self.assertEqual(max_length, 20)
 
-    # -------------------------
+
     # Difficulty Calculation Tests
-    # -------------------------
+
     def test_calculate_difficulty_easy(self):
         recipe = Recipe(name="Fruit Salad", ingredients="apple, banana", cooking_time=0)
         recipe.save()
@@ -101,9 +101,9 @@ class RecipeViewsTest(TestCase):
         recipe.save()
         self.assertEqual(recipe.difficulty, "Hard")
 
-    # -------------------------
+
     # Edge Case: Empty Ingredients
-    # -------------------------
+
     def test_empty_ingredients_handled(self):
         recipe = Recipe(name="Mystery Dish", ingredients="", cooking_time=5)
         recipe.save()
