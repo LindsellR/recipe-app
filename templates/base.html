@@ -11,6 +11,7 @@
 
 <body>
     <!-- Header -->
+    {% if request.resolver_match.url_name != "welcome" %}
     <header class="header-banner">
         <div class="header-left">
             <img src="/media/recipe_app_icon.jpg" alt="Recipe App Icon" class="app-icon">
@@ -30,8 +31,22 @@
             </select>
             <button type="submit">Search</button>
         </form>
-    </header>
 
+        <!-- Logout button (only if user is authenticated) -->
+        <!-- Right side -->
+        <div class="header-right">
+            {% if user.is_authenticated %}
+            <form action="{% url 'logout' %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn-logout">Logout</button>
+            </form>
+            {% else %}
+            <a href="{% url 'login' %}" class="btn-login">Login</a>
+            {% endif %}
+        </div>
+
+    </header>
+    {% endif %}
 
     <!-- Main content -->
     <main>

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Logout Successful{% endblock %}
+
+{% block content %}
+<section class="logout-success">
+    <h1>You have successfully logged out</h1>
+    <p>We hope to see you again soon!</p>
+
+    <a href="{% url 'login' %}" class="btn-login">Login Again</a>
+
+    <p>You will be redirected to the welcome page in <span id="countdown">5</span> seconds.</p>
+</section>
+
+<script>
+    let seconds = 5;
+    const countdownEl = document.getElementById("countdown");
+
+    const interval = setInterval(() => {
+        seconds--;
+        countdownEl.textContent = seconds;
+
+        if (seconds <= 0) {
+            clearInterval(interval);
+            window.location.href = "{% url 'recipes:welcome' %}";
+        }
+    }, 1000);
+</script>
+{% endblock %}
