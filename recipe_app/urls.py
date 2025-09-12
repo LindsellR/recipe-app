@@ -20,13 +20,13 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from .views import login_view, logout_view, welcome_view
+from recipes import views as recipe_views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", welcome_view, name="welcome"),
     path("recipes/", include("recipes.urls")),
     path("favourites/", include("favourites.urls")),
-    path("search/", include("search.urls", namespace="search")),
     path("login/", login_view, name="login"),
     path("logout/", logout_view, name="logout"),
 ]
