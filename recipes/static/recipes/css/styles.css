@@ -315,6 +315,28 @@ main > h1 {
 }
 
 /* main.html card styling*/
+.advanced-search-button-container {
+    text-align: center;       /* center the button horizontally */
+    margin: 20px 0;           /* space between heading and cards */
+}
+
+.btn-advanced-search {
+    display: inline-block;
+    background-color: #CBA135;
+    color: #FAF3E0;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-advanced-search:hover {
+    background-color: #a67c28;
+    transform: translateY(-2px);
+}
+
 
 .card-container {
     display: flex;
@@ -468,4 +490,128 @@ main > h1 {
     background-color: #a67c28;
 }
 
+/* Advanced search view styling */
+.advanced-search-page .search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* centers children horizontally */
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;       /* centers container in page */
+}
+
+.advanced-search-page h2,
+.advanced-search-page h3,
+.advanced-search-page p {
+    text-align: center;
+    width: 100%;
+}
+
+.advanced-search-page .search-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;  /* centers form elements */
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.search-form {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-form input,
+.search-form select {
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.search-form button.btn-search {
+    background-color: #CBA135;
+    color: #FAF3E0;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+.search-form button.btn-search:hover {
+    background-color: #a67c28;
+}
+
+/* Search results table */
+.search-results {
+    margin-top: 25px;
+    overflow-x: auto; /* responsive for small screens */
+}
+
+.search-results table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Roboto', sans-serif;
+}
+
+.search-results th,
+.search-results td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+    font-size: 0.95rem;
+}
+
+.search-results th {
+    background-color: #3B3B58;
+    color: #FAF3E0;
+}
+
+.search-results td a {
+    color: #2c6f2c;
+    text-decoration: none;
+}
+
+.search-results td a:hover {
+    color: #145214;
+    text-decoration: underline;
+}
+
+/* Charts container */
+.charts-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;   /* center charts horizontally */
+    gap: 30px;                 /* space between charts */
+    margin: 40px 0;            /* space above and below charts */
+}
+
+/* Individual chart card */
+.chart-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    max-width: 400px;          /* width limit */
+    flex: 1 1 300px;           /* flexible for responsive layout */
+}
+
+/* Chart images */
+.chart-img {
+    width: 100%;               /* responsive width */
+    height: auto;
+    margin-top: 10px;
+}
+
+/* Chart headings */
+.chart-card h3 {
+    color: #2a7a2a;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
 

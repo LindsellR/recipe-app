@@ -1,11 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>All Recipes</h1>
-<div class="card-container">
-    {% for recipe in recipes %}
+<main>
+        <h1>All Recipes</h1>
+    <!-- Centered Advanced Search Button -->
+    <div class="advanced-search-button-container">
+        <a href="{% url 'search:advanced-search' %}" class="btn-advanced-search">Advanced Search</a>
+    </div>
+
+    <div class="card-container">
+        {% for recipe in recipes %}
         {% include "recipes/recipe_card.html" %}
-    {% empty %}
+        {% empty %}
         <p>No recipes available.</p>
-    {% endfor %}
-</div>
+        {% endfor %}
+    </div>
+</main>
 {% endblock %}

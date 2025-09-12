@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}Advanced Search{% endblock %}
+
+{% block content %}
+<h2 style="text-align:center;">Advanced Search</h2>
+
+<!-- Advanced Search Form -->
+<form method="get" class="search-form">
+    {{ form.as_p }}
+    <button type="submit" class="btn-search">Search</button>
+</form>
+
+<!-- Charts -->
+{% if chart_bar or chart_pie or chart_line %}
+<h2 style="text-align:center; margin-top:40px;">Visual Insights</h2>
+<div class="charts-container">
+
+    {% if chart_bar %}
+    <div class="chart-card">
+        <h3>Recipe Difficulty Distribution</h3>
+        <img src="data:image/png;base64,{{ chart_bar }}" class="chart-img">
+    </div>
+    {% endif %}
+
+    {% if chart_pie %}
+    <div class="chart-card">
+        <h3>Meal Type Distribution</h3>
+        <img src="data:image/png;base64,{{ chart_pie }}" class="chart-img">
+    </div>
+    {% endif %}
+
+    {% if chart_line %}
+    <div class="chart-card">
+        <h3>Cooking Time per Recipe</h3>
+        <img src="data:image/png;base64,{{ chart_line }}" class="chart-img">
+    </div>
+    {% endif %}
+
+</div>
+{% endif %}
+
+<!-- Search Results -->
+{% if df_html %}
+<h3 style="text-align:center; margin-top:40px;">Search Results</h3>
+<div class="card-container">
+    {{ df_html|safe }}
+</div>
+{% elif form.is_bound %}
+<p>No recipes found matching your criteria.</p>
+{% endif %}
+
+{% endblock %}
