@@ -3,50 +3,74 @@
 
 {% block content %}
 <h2 style="text-align:center;">Advanced Search</h2>
+<div class="advanced-search-page">
 
-<!-- Advanced Search Form -->
-<form method="get" class="search-form">
-    {{ form.as_p }}
-    <button type="submit" class="btn-search">Search</button>
-</form>
+    <!-- Advanced Search Form -->
+    <div class="search-container">
+        <form method="get" action="{% url 'recipes:advanced-search' %}" class="search-form">
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-search">Search</button>
+        </form>
+    </div>
 
-<!-- Charts -->
-{% if chart_bar or chart_pie or chart_line %}
-<h2 style="text-align:center; margin-top:40px;">Visual Insights</h2>
-<div class="charts-container">
+    {% if recipes %}
+    <div class="table-container">
+    <h3 style="text-align:center; margin-top:40px;">Search Results</h3>
+    <br>
+    <table class="advanced-search-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Meal Type</th>
+                <th>Cooking Time</th>
+                <th>Difficulty</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for recipe in recipes %}
+            <tr>
+                <td><a href="{% url 'recipes:recipe_detail' recipe.id %}">{{ recipe.name }}</a></td>
+                <td>{{ recipe.meal_type }}</td>
+                <td>{{ recipe.cooking_time }}</td>
+                <td>{{ recipe.difficulty }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+    {% elif request.GET %}
+    <p>No recipes found matching your criteria.</p>
+    {% endif %}
+    <br>
 
-    {% if chart_bar %}
-    <div class="chart-card">
-        <h3>Recipe Difficulty Distribution</h3>
-        <img src="data:image/png;base64,{{ chart_bar }}" class="chart-img">
+    <!-- Charts -->
+    {% if chart_bar or chart_pie or chart_line %}
+    
+    <h2 style="text-align:center; margin-top:40px;">Visual Insights</h2>
+    <div class="charts-container">
+        {% if chart_bar %}
+        <div class="chart-card">
+            <h3>Recipe Difficulty Distribution</h3>
+            <img src="data:image/png;base64,{{ chart_bar }}" class="chart-img">
+        </div>
+        {% endif %}
+
+        {% if chart_pie %}
+        <div class="chart-card">
+            <h3>Meal Type Distribution</h3>
+            <img src="data:image/png;base64,{{ chart_pie }}" class="chart-img">
+        </div>
+        {% endif %}
+
+        {% if chart_line %}
+        <div class="chart-card">
+            <h3>Cooking Time per Recipe</h3>
+            <img src="data:image/png;base64,{{ chart_line }}" class="chart-img">
+        </div>
+        {% endif %}
+
     </div>
     {% endif %}
-
-    {% if chart_pie %}
-    <div class="chart-card">
-        <h3>Meal Type Distribution</h3>
-        <img src="data:image/png;base64,{{ chart_pie }}" class="chart-img">
-    </div>
-    {% endif %}
-
-    {% if chart_line %}
-    <div class="chart-card">
-        <h3>Cooking Time per Recipe</h3>
-        <img src="data:image/png;base64,{{ chart_line }}" class="chart-img">
-    </div>
-    {% endif %}
-
 </div>
-{% endif %}
-
-<!-- Search Results -->
-{% if df_html %}
-<h3 style="text-align:center; margin-top:40px;">Search Results</h3>
-<div class="card-container">
-    {{ df_html|safe }}
-</div>
-{% elif form.is_bound %}
-<p>No recipes found matching your criteria.</p>
-{% endif %}
 
 {% endblock %}

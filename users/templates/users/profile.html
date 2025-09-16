@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Profile - {{ user.username }}{% endblock %}
+
+{% block content %}
+<main class="profile-page">
+    <div class="profile-card">
+        <h1>{{ user.username }}</h1>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+
+        <ul class="profile-links">
+            <li><a href="{% url 'users:my_recipes' %}">My Recipes</a></li>
+            <li><a href="{% url 'users:user_favourites' %}">My Favourites</a></li>
+            <li><a href="{% url 'users:add_recipe' %}">Add New Recipe</a></li>
+            <li><a href="{% url 'users:edit_profile' %}">Edit Profile</a></li>
+        </ul>
+
+        <form action="{% url 'logout' %}" method="post" class="profile-logout-form">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-logout">Logout</button>
+        </form>
+    </div>
+</main>
+{% endblock %}

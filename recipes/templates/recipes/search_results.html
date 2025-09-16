@@ -2,19 +2,23 @@
 {% block title %}Search Results{% endblock %}
 
 {% block content %}
-  <h2>Search Results</h2>
+<div class="search-results-page">
+  <h2 style="text-align:center; margin-bottom: 30px;">Search Results</h2>
 
   {% if recipes %}
-    <ul>
+    <div class="recipe-cards">
       {% for recipe in recipes %}
-        <li>
-          <a href="{% url 'recipes:recipe_detail' recipe.id %}">
-            {{ recipe.name }}
-          </a> - {{ recipe.meal_type|title }}
-        </li>
+        {% include "recipes/recipe_card.html" with recipe=recipe %}
       {% endfor %}
-    </ul>
+    </div>
   {% else %}
-    <p>No recipes found.</p>
+    <p style="text-align:center;">No recipes found.</p>
   {% endif %}
+
+  {% if advanced %}
+    <p style="text-align:center; margin-top:20px;">
+      <a href="{% url 'recipes:advanced-search' %}">Back to Advanced Search</a>
+    </p>
+  {% endif %}
+</div>
 {% endblock %}

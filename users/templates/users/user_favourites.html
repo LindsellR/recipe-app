@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>My Favourites</h2>
+
+<div class="card-container">
+    {% for fav in favourites %}
+        <div class="recipe-card">
+            {% include "recipes/recipe_card.html" with recipe=fav.recipe %}
+            <div class="recipe-actions">
+                <a href="{% url 'users:remove_favourite' fav.recipe.id %}" class="btn btn-warning">
+                    Remove Favourite
+                </a>
+            </div>
+        </div>
+    {% empty %}
+        <p>You have no favourite recipes yet.</p>
+    {% endfor %}
+</div>
+{% endblock %}

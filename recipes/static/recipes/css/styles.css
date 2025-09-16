@@ -9,7 +9,7 @@ body, h1, h2, h3, p, a {
 /* Update header banner to distribute content */
 .header-banner {
     background-color: #d4edda;
-    padding: 10px 20px;
+    padding: 15px 20px;
     margin-bottom: 40px;
     display: flex;
     align-items: center;
@@ -21,6 +21,18 @@ body, h1, h2, h3, p, a {
 .header-left {
     display: flex;
     align-items: center;
+}
+.app-icon {
+    width: 60px; /* smaller for a cleaner look */
+    height: auto; /* auto keeps the aspect ratio */
+    margin-right: 12px;
+}
+
+.app-title {
+    font-size: 1.6rem;  /* slightly smaller */
+    font-weight: 600;   /* medium bold */
+    color: #2f2f2f;
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* modern sans-serif */
 }
 
 /* Centered search form */
@@ -54,47 +66,22 @@ body, h1, h2, h3, p, a {
 }
 
 
-.app-icon {
-    width: 60px; /* smaller for a cleaner look */
-    height: auto; /* auto keeps the aspect ratio */
-    margin-right: 12px;
+/* Right side*/
+/* Right side: profile + logout */
+.user-menu {
+    display: flex;
+    gap: 10px;       /* space between profile and logout */
+    align-items: center;
 }
 
-.app-title {
-    font-size: 1.6rem;  /* slightly smaller */
-    font-weight: 600;   /* medium bold */
-    color: #2f2f2f;
-    font-family: 'Helvetica Neue', Arial, sans-serif; /* modern sans-serif */
-}
-/* Right side*/
+/* Adjust header-right padding if needed */
 .header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* space between Profile and Logout */
     padding-right: 20px;
 }
 
-.btn-login, .btn-logout {
-    padding: 8px 15px;
-    border-radius: 8px;
-    font-weight: bold;
-    color: #fff;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.btn-login {
-    background-color: #2c6f2c;
-}
-
-.btn-login:hover {
-    background-color: #145214;
-}
-
-.btn-logout {
-    background-color: #CBA135;
-}
-
-.btn-logout:hover {
-    background-color: #a67c28;
-}
 
 /* Main Banner */
 .main-banner {
@@ -137,21 +124,6 @@ body, h1, h2, h3, p, a {
 }
 
 /* Browse button */
-.btn-browse {
-    background-color: #d4edda;
-    color: #333;
-    padding: 12px 30px;
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: 600;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-}
-
-.btn-browse:hover {
-    background-color: #b1dfbb;
-    transform: scale(1.05);
-}
 
 /* Login page styling */
 .login-section {
@@ -194,24 +166,6 @@ body, h1, h2, h3, p, a {
     border-radius: 6px;
     font-size: 1rem;
     box-sizing: border-box;
-}
-
-.login-form button.btn-login {
-    display: inline-block;
-    width: 100%;
-    padding: 12px;
-    background-color: #CBA135;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-}
-
-.login-form button.btn-login:hover {
-    background-color: #a67c28;
 }
 
 /* Card Styling main.html */
@@ -320,23 +274,6 @@ main > h1 {
     margin: 20px 0;           /* space between heading and cards */
 }
 
-.btn-advanced-search {
-    display: inline-block;
-    background-color: #CBA135;
-    color: #FAF3E0;
-    padding: 10px 18px;
-    border-radius: 6px;
-    font-weight: bold;
-    text-decoration: none;
-    font-size: 1rem;
-    transition: background-color 0.2s ease, transform 0.1s ease;
-}
-
-.btn-advanced-search:hover {
-    background-color: #a67c28;
-    transform: translateY(-2px);
-}
-
 
 .card-container {
     display: flex;
@@ -370,21 +307,6 @@ main > h1 {
 .recipe-card-content {
     padding: 10px;
 }
-
-.btn-fav {
-    display: inline-block;
-    margin-top: 8px;
-    padding: 5px 10px;
-    background-color: #d4edda;
-    border-radius: 5px;
-    text-decoration: none;
-    color: #333;
-    transition: background-color 0.2s;
-}
-
-.btn-fav:hover {
-    background-color: #bce0b0;
-} 
 
 /* Recipe Detail Styling */
 .recipe-detail-card {
@@ -428,23 +350,6 @@ main > h1 {
     margin-bottom: 10px;
 }
 
-/* Back button */
-.btn-back {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 16px;
-    background-color: #d4edda;
-    border-radius: 6px;
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    transition: background-color 0.2s ease, transform 0.1s ease;
-}
-
-.btn-back:hover {
-    background-color: #bce0b0;
-    transform: translateY(-2px);
-}
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
@@ -472,22 +377,6 @@ main > h1 {
 .logout-success h1 {
     color: #3B3B58;
     margin-bottom: 20px;
-}
-
-.btn-login {
-    display: inline-block;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding: 10px 20px;
-    background-color: #CBA135;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
-}
-
-.btn-login:hover {
-    background-color: #a67c28;
 }
 
 /* Advanced search view styling */
@@ -548,7 +437,7 @@ main > h1 {
 
 /* Search results table */
 .search-results {
-    margin-top: 25px;
+    margin-top: 35px;
     overflow-x: auto; /* responsive for small screens */
 }
 
@@ -581,13 +470,78 @@ main > h1 {
     text-decoration: underline;
 }
 
+/* Advanced search results table */
+/* Main wrapper for advanced search page */
+.advanced-search-page {
+    padding: 0 20px; /* space at the sides */
+    max-width: 1200px;
+    margin: 0 auto;  /* center everything */
+}
+
+/* Center the search form */
+.advanced-search-page .search-container {
+    display: flex;
+    justify-content: center; /* center form horizontally */
+    margin-bottom: 30px;    /* space below form */
+}
+
+/* Adjust spacing between form fields */
+.advanced-search-page .search-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;  /* space between fields */
+    justify-content: center;
+}
+
+/* Table styling */
+.table-container {
+    margin: 40px 0; /* space above and below table */
+    overflow-x: auto; /* for small screens */
+}
+
+.advanced-search-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+}
+
+.advanced-search-table th,
+.advanced-search-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.advanced-search-table th {
+    background-color: #3B3B58;
+    color: #FAF3E0;
+}
+
+.advanced-search-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.advanced-search-table tr:hover {
+    background-color: #e6f7ff;
+}
+
+.advanced-search-table a {
+    color: #2c6f2c;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.advanced-search-table a:hover {
+    text-decoration: underline;
+}
+
 /* Charts container */
 .charts-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;   /* center charts horizontally */
     gap: 30px;                 /* space between charts */
-    margin: 40px 0;            /* space above and below charts */
+    margin: 50px 0;            /* space above and below charts */
 }
 
 /* Individual chart card */
@@ -615,3 +569,356 @@ main > h1 {
     font-size: 1.2rem;
 }
 
+/* User profile & general container */
+
+/* Add some padding on the main content */
+.container, main {
+    padding: 0 2rem; /* space from edges of browser */
+}
+
+/* Profile page layout */
+.profile-page {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+}
+
+/* Profile card / edit form card */
+.profile-card, .profile-form {
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+/* Headings */
+.profile-card h1, .profile-form h1 {
+    font-size: 2rem;
+    color: #2a7a2a;
+    margin-bottom: 15px;
+}
+
+/* Paragraph text */
+.profile-card p, .profile-form p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+/* Success message */
+.success-message {
+    background-color: #d4edda;
+    padding: 10px 15px;
+    border-radius: 6px;
+    color: #2c6f2c;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Profile links (used on profile page) */
+.profile-links {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 25px;
+}
+
+.profile-links li {
+    margin: 10px 0;
+}
+
+.profile-links a {
+    text-decoration: none;
+    color: #2c6f2c;
+    font-weight: bold;
+    padding: 8px 12px;
+    display: inline-block;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.profile-links a:hover {
+    background-color: #145214;
+    color: #fff;
+}
+
+/* Logout form */
+.profile-logout-form {
+    margin-top: 20px;
+}
+
+
+/* Edit profile form elements */
+.profile-form .form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.profile-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #2a7a2a;
+}
+
+.profile-form input {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+/* Form helper text */
+.profile-form .form-text {
+    font-size: 0.85rem;
+    color: #555;
+}
+
+/* Add/Edit Recipe Page */
+
+/* Center the form container */
+.recipe-form-page {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+}
+
+/* Form card styling */
+.recipe-form-card {
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    max-width: 600px;
+    width: 100%;
+}
+
+/* Heading */
+.recipe-form-card h2 {
+    font-size: 2rem;
+    color: #2a7a2a;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Form groups */
+.recipe-form-card form {
+    display: flex;
+    flex-direction: column;
+}
+
+.recipe-form-card form p {
+    margin-bottom: 15px;
+}
+
+/* Labels */
+.recipe-form-card label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #2a7a2a;
+}
+
+/* Inputs and file fields */
+.recipe-form-card input,
+.recipe-form-card textarea,
+.recipe-form-card select {
+    width: 100%;
+    padding: 8px 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .recipe-form-card {
+        padding: 20px;
+    }
+}
+
+/*Button Styling*/
+/* ==========================
+   Base Button Style
+   ========================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 18px;     /* consistent horizontal + vertical spacing */
+    height: auto;           /* uniform height */
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+/* ==========================
+   Header Buttons
+   ========================== */
+.btn-home {
+    margin-left: 20px;
+    background-color: #CBA135;
+    color: #fff;
+}
+
+.btn-home:hover {
+    background-color: #a67c28;
+}
+
+.btn-profile {
+    background-color: #2c6f2c;
+    color: #fff;
+}
+
+.btn-profile:hover {
+    background-color: #145214;
+    color: #fff;
+}
+
+.btn-login {
+    margin: 10px;
+    background-color: #2c6f2c;
+    color: #fff;
+}
+
+.btn-login:hover {
+    background-color: #145214;
+    color: #fff;
+}
+
+.btn-logout {
+    background-color: #CBA135;
+    color: #fff;
+}
+
+.btn-logout:hover {
+    background-color: #a67c28;
+}
+
+/* ==========================
+   Main Page / Action Buttons
+   ========================== */
+.btn-browse {
+    background-color: #d4edda;
+    color: #333;
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-browse:hover {
+    background-color: #b1dfbb;
+    transform: scale(1.05);
+}
+
+.btn-fav {
+    margin: 5px;
+    background-color: #d4edda;
+    color: #333;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-fav:hover {
+    background-color: #bce0b0;
+    transform: translateY(-2px);
+}
+
+.btn-advanced-search {
+    background-color: #CBA135;
+    color: #FAF3E0;
+    padding: 10px 18px;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+.btn-advanced-search:hover {
+    background-color: #a67c28;
+    color: #FAF3E0;
+    transform: translateY(-2px);
+}
+
+.btn-back {
+     width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    display: inline-flex;        
+    align-items: center;         
+    justify-content: center;     
+    text-align: center;
+    box-sizing: border-box;      
+    margin-top: 10px;
+}
+
+.btn-back:hover {
+    background-color: #a67c28;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* ==========================
+   Form Buttons
+   ========================== */
+.login-form button.btn-login,
+.profile-form button.btn-profile {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+.recipe-form-card .btn-success,
+.recipe-form-card .btn-secondary{
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    display: inline-flex;        
+    align-items: center;         
+    justify-content: center;     
+    text-align: center;
+    box-sizing: border-box;      
+    margin-top: 10px;
+}
+
+/* Success / Primary Buttons */
+.recipe-form-card .btn-success,
+.profile-form button.btn-profile {
+    background-color: #2c6f2c;
+    color: #fff;
+}
+
+.recipe-form-card .btn-success:hover,
+.profile-form button.btn-profile:hover {
+    background-color: #145214;
+    transform: translateY(-2px);
+}
+
+/* Secondary / Back Buttons */
+.recipe-form-card .btn-secondary,
+.profile-form .btn-back {
+    background-color: #CBA135;
+    color: #fff;
+}
+
+.recipe-form-card .btn-secondary:hover,
+.profile-form .btn-back:hover {
+    background-color: #a67c28;
+    transform: translateY(-2px);
+}

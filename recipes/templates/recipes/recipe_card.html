@@ -12,7 +12,20 @@
       </a>
     </h3>
 
-    <!-- Stubbed button -->
-    <button class="btn-fav">♡ Add to Favourites</button>
+    {% if user.is_authenticated %}
+      {% if recipe.id in fav_ids %}
+        <form method="post" action="{% url 'users:remove_favourite' recipe.id %}">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-fav btn-remove">Remove from Favourites</button>
+        </form>
+      {% else %}
+        <form method="post" action="{% url 'users:add_favourite' recipe.id %}">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-fav btn-add">♡ Add to Favourites</button>
+        </form>
+      {% endif %}
+    {% else %}
+      <a href="{% url 'login' %}" class="btn btn-fav btn-login">♡ Login to add</a>
+    {% endif %}
   </div>
 </div>

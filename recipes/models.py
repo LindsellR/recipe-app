@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -30,6 +31,13 @@ class Recipe(models.Model):
         max_length=20, choices=MEAL_TYPE_CHOICES, default="dinner"
     )  # 👈 new field
     pic = models.ImageField(upload_to="recipes", default="no_picture.jpg")
+    created_by = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        null=True,      # allow NULL for existing rows
+        blank=True,     # allow blank in forms
+        related_name="recipes_created"
+    )
 
     def __str__(self):
         formatted_ingredients = (

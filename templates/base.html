@@ -13,12 +13,14 @@
     <!-- Header -->
     {% if request.resolver_match.url_name != "welcome" %}
     <header class="header-banner">
+        <!-- Left: Logo + Title -->
         <div class="header-left">
             <img src="/media/recipe_app_icon.jpg" alt="Recipe App Icon" class="app-icon">
             <span class="app-title">Recipe App</span>
+            <a href="{% url 'recipes:recipe_list' %}" class="btn btn-home">Home</a>
         </div>
 
-        <!-- Header Search Form -->
+        <!-- Center: Header Search -->
         <form method="get" action="{% url 'recipes:search_recipes' %}" class="header-search">
             <input type="text" name="q" placeholder="Search by recipe title or ingredient">
             <select name="meal_type">
@@ -33,19 +35,22 @@
             <button type="submit">Search</button>
         </form>
 
-
-        <!-- Logout / Login buttons -->
+        <!-- Right: User actions -->
         <div class="header-right">
             {% if user.is_authenticated %}
-            <form action="{% url 'logout' %}" method="post" style="display:inline;">
-                {% csrf_token %}
-                <button type="submit" class="btn-logout">Logout</button>
-            </form>
+            <div class="user-menu">
+                <a href="{% url 'users:profile' %}" class="btn btn-profile">Profile</a>
+                <form action="{% url 'logout' %}" method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-logout">Logout</button>
+                </form>
+            </div>
             {% else %}
-            <a href="{% url 'login' %}" class="btn-login">Login</a>
+            <a href="{% url 'login' %}" class="btn btn-login">Login</a>
             {% endif %}
         </div>
     </header>
+
     {% endif %}
 
 
@@ -59,6 +64,7 @@
     <footer style="text-align:center; padding:20px; background:#d4edda; margin-top:20px;">
         <p>© 2025 Recipe App</p>
     </footer>
+
 </body>
 
 </html>

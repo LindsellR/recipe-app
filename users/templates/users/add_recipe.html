@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="recipe-form-page">
+    <div class="recipe-form-card">
+        <h2>{% if form.instance.pk %}Edit{% else %}Add New{% endif %} Recipe</h2>
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-success">{% if form.instance.pk %}Update{% else %}Save{% endif %}</button>
+            <a href="{% url 'users:my_recipes' %}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

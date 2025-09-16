@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Profile{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Edit Profile</h1>
+
+    {% if messages %}
+        {% for message in messages %}
+            <p class="success-message">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+
+    <form method="post" class="profile-form">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_username">Username</label>
+            {{ form.username }}
+        </div>
+
+        <div class="form-group">
+            <label for="id_email">Email</label>
+            {{ form.email }}
+        </div>
+
+        <div class="form-group">
+            <label for="id_password">Password</label>
+            {{ form.password }}
+            <small class="form-text">Leave blank to keep your current password</small>
+        </div>
+
+        <button type="submit" class="btn btn-profile">Update Profile</button>
+        <a href="{% url 'users:profile' %}" class="btn btn-back">Cancel</a>
+    </form>
+</div>
+{% endblock %}

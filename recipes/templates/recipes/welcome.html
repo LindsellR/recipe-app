@@ -9,11 +9,11 @@
 
         {% if user.is_authenticated %}
             <!-- Show these if the user is logged in -->
-            <a href="{% url 'recipes:recipe_list' %}" class="btn-browse">Browse Recipes</a>
-            <a href="{% url 'logout' %}" class="btn-logout">Logout</a>
+            <a href="{% url 'recipes:recipe_list' %}" class="btn btn-browse">Browse Recipes</a>
+            <a href="{% url 'logout' %}" class="btn btn-logout">Logout</a>
         {% else %}
             <!-- Show this if the user is NOT logged in -->
-            <a href="{% url 'login' %}" class="btn-login">Login</a>
+            <a href="{% url 'login' %}" class="btn btn-login">Login</a>
         {% endif %}
     </div>
 </section>
