@@ -123,7 +123,29 @@ body, h1, h2, h3, p, a {
     margin-bottom: 30px;
 }
 
-/* Browse button */
+.banner-content a {
+    margin: 10px;
+}
+
+/* Login section */
+.signup-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    background-color: #f8f8f8;
+    padding: 50px 20px;
+}
+
+.signup-container {
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
 
 /* Login page styling */
 .login-section {
@@ -167,6 +189,120 @@ body, h1, h2, h3, p, a {
     font-size: 1rem;
     box-sizing: border-box;
 }
+
+/* Signup Section */
+.signup-section {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    background-color: #FAF3E0; /* light cream */
+    min-height: 80vh;
+}
+
+.signup-container {
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+/* Form heading */
+.signup-container h1 {
+    font-family: 'Cinzel', serif;
+    text-align: center;
+    margin-bottom: 25px;
+    color: #3B3B58; /* deep indigo */
+}
+
+/* Form groups */
+.signup-form .form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Labels */
+.signup-form label {
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #3B3B58;
+}
+
+/* Input fields */
+.signup-form input.input-field {
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid #CBA135; /* gold accent */
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Input focus state */
+.signup-form input.input-field:focus {
+    border-color: #3B3B58;
+    box-shadow: 0 0 0 3px rgba(59, 59, 88, 0.2);
+}
+
+/* Buttons */
+.signup-form button.btn-signup {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: none;
+    background-color: #3B3B58;
+    color: #FAF3E0;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.signup-form button.btn-signup:hover {
+    background-color: #2a2a44;
+}
+
+/* Messages */
+.messages .message {
+    padding: 10px 15px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.messages .message.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.messages .message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Small text links */
+.signup-container p {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.signup-container a {
+    color: #CBA135;
+    text-decoration: none;
+}
+
+.signup-container a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .signup-container {
+        padding: 20px;
+    }
+}
+
 
 /* Card Styling main.html */
 .recipe-cards {
@@ -346,8 +482,20 @@ main > h1 {
     line-height: 1.6;
 }
 
+/* Paragraphs inside info */
 .recipe-detail-info p {
     margin-bottom: 10px;
+}
+
+/* New styling for ingredients list */
+.recipe-detail-info ul.ingredients-list {
+    list-style-type: disc;   /* bullet points */
+    margin: 5px 0 15px 20px; /* top 5px, bottom 15px, left 20px indent */
+    padding-left: 0;
+}
+
+.recipe-detail-info ul.ingredients-list li {
+    margin-bottom: 4px;      /* spacing between items */
 }
 
 
@@ -775,6 +923,16 @@ main > h1 {
 
 .btn-home:hover {
     background-color: #a67c28;
+    color: #fff;
+}
+.btn-about {
+    margin-left: 20px;
+    background-color: #CBA135;
+    color: #fff;
+}
+.btn-about:hover {
+    background-color: #a67c28;
+    color: #fff;
 }
 
 .btn-profile {
@@ -795,7 +953,7 @@ main > h1 {
 
 .btn-login:hover {
     background-color: #145214;
-    color: #fff;
+  
 }
 
 .btn-logout {
@@ -866,6 +1024,7 @@ main > h1 {
     text-align: center;
     box-sizing: border-box;      
     margin-top: 10px;
+    background-color: #bce0b0;
 }
 
 .btn-back:hover {
@@ -921,4 +1080,104 @@ main > h1 {
 .profile-form .btn-back:hover {
     background-color: #a67c28;
     transform: translateY(-2px);
+}
+
+/*Messages*/
+.messages {
+    margin-bottom: 1rem;
+}
+
+.message {
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.message.warning {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+}
+
+.message.info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
+
+/*About Me page*/
+.about-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.about-image img {
+    width: 200px;
+    height: auto;
+    border-radius: 5%;
+    object-fit: cover;
+    border: 3px solid #CBA135;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text p {
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.btn-portfolio {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #CBA135;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn-portfolio:hover {
+    background-color: #a67c28;
+    color: #fff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .about-image img {
+        width: 150px;
+        margin-bottom: 1rem;
+    }
+
+    .about-text {
+        flex: none;
+    }
 }

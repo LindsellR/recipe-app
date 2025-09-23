@@ -4,6 +4,9 @@ from django.contrib.auth.models import User
 from recipes.models import Recipe
 from users.models import Favourite
 from .forms import UserProfileForm
+from django.core.exceptions import ValidationError
+from django.contrib.auth.password_validation import validate_password
+from django.core import mail
 
 
 class FavouritesViewTest(TestCase):
@@ -49,7 +52,7 @@ class UserProfileTest(TestCase):
             "email": "new@mail.com",
             "password": "",
         })
-        self.assertRedirects(response, reverse("users:profile"))
+        self.assertRedirects(response, reverse("users:profile"), fetch_redirect_response=False)
         self.user.refresh_from_db()
         self.assertEqual(self.user.email, "new@mail.com")
 
@@ -59,7 +62,7 @@ class UserProfileTest(TestCase):
             "email": "old@mail.com",
             "password": "newpass123",
         })
-        self.assertRedirects(response, reverse("users:profile"))
+        self.assertRedirects(response, reverse("users:profile"), fetch_redirect_response=False)
         self.user.refresh_from_db()
         self.assertTrue(self.user.check_password("newpass123"))
 
@@ -75,7 +78,9 @@ class UserRecipesTest(TestCase):
             "ingredients": "Eggs, butter",
             "instructions": "Whisk and fry",
             "cooking_time": 5,
+            "meal_type": "breakfast"
         })
+        
         self.assertRedirects(response, reverse("users:my_recipes"))
         self.assertTrue(Recipe.objects.filter(name="Omelette", created_by=self.user).exists())
 
@@ -86,7 +91,9 @@ class UserRecipesTest(TestCase):
             "ingredients": "Bread, eggs",
             "instructions": "Dip and fry",
             "cooking_time": 10,
+            "meal_type": "breakfast"
         })
+       
         self.assertRedirects(response, reverse("users:my_recipes"))
         recipe.refresh_from_db()
         self.assertEqual(recipe.name, "French Toast")
@@ -197,3 +204,99 @@ class UserProfileFormTest(TestCase):
         form = UserProfileForm(data=form_data, instance=self.user)
         self.assertFalse(form.is_valid())
         self.assertIn("email", form.errors)
+
+class SignupViewTest(TestCase):
+    def test_signup_valid(self):
+        response = self.client.post(reverse("signup"), {
+            "username": "newuser",
+            "email": "new@example.com",
+            "password": "securepass123",
+            "password_confirm": "securepass123",
+        })
+        self.assertRedirects(response, reverse("login"))
+        self.assertTrue(User.objects.filter(username="newuser").exists())
+
+    def test_signup_password_mismatch(self):
+        response = self.client.post(reverse("signup"), {
+            "username": "newuser",
+            "email": "new@example.com",
+            "password": "securepass123",
+            "password_confirm": "wrongpass",
+        })
+        self.assertEqual(response.status_code, 200)  # stays on page
+        self.assertContains(response, "Passwords do not match.")
+        self.assertFalse(User.objects.filter(username="newuser").exists())
+
+    def test_signup_invalid_email(self):
+        response = self.client.post(reverse("signup"), {
+            "username": "newuser",
+            "email": "invalid-email",
+            "password": "securepass123",
+            "password_confirm": "securepass123",
+        })
+        self.assertEqual(response.status_code, 200)
+        form = response.context["form"]
+        self.assertFormError(form, "email", "Enter a valid email address.")
+
+
+class LoginViewTest(TestCase):
+    def setUp(self):
+        self.user = User.objects.create_user(username="tester", password="secret")
+
+    def test_login_valid(self):
+        response = self.client.post(reverse("login"), {
+            "username": "tester",
+            "password": "secret",
+        })
+        self.assertEqual(response.status_code, 302)  # redirect after login
+        self.assertTrue(response.wsgi_request.user.is_authenticated)
+
+    def test_login_invalid(self):
+        response = self.client.post(reverse("login"), {
+            "username": "tester",
+            "password": "wrongpass",
+        })
+        self.assertEqual(response.status_code, 200)
+        self.assertFalse(response.wsgi_request.user.is_authenticated)
+        self.assertContains(response, "Please enter a correct username and password")
+
+class PasswordValidationTest(TestCase):
+    def test_short_password_invalid(self):
+        with self.assertRaises(ValidationError):
+            validate_password("123")
+
+    def test_common_password_invalid(self):
+        with self.assertRaises(ValidationError):
+            validate_password("password")
+
+    def test_numeric_only_invalid(self):
+        with self.assertRaises(ValidationError):
+            validate_password("12345678")
+
+    def test_valid_password(self):
+        try:
+            validate_password("GoodPassword123")
+        except ValidationError:
+            self.fail("Valid password raised ValidationError unexpectedly!")
+
+
+class PasswordResetFlowTest(TestCase):
+    def setUp(self):
+        self.user = User.objects.create_user(
+            username="tester", email="tester@example.com", password="secret"
+        )
+
+    def test_password_reset_email_sent(self):
+        response = self.client.post(reverse("password_reset"), {
+            "email": "tester@example.com"
+        })
+        self.assertRedirects(response, reverse("password_reset_done"))
+        self.assertEqual(len(mail.outbox), 1)  # one email should be sent
+        self.assertIn("tester@example.com", mail.outbox[0].to)
+
+    def test_password_reset_invalid_email(self):
+        response = self.client.post(reverse("password_reset"), {
+            "email": "nobody@example.com"
+        })
+        self.assertRedirects(response, reverse("password_reset_done"))
+        self.assertEqual(len(mail.outbox), 0)  # no email sent

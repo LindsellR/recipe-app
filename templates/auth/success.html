@@ -3,13 +3,21 @@
 {% block title %}Logout Successful{% endblock %}
 
 {% block content %}
-<section class="logout-success">
-    <h1>You have successfully logged out</h1>
-    <p>We hope to see you again soon!</p>
+<section class="logout-success" role="region" aria-labelledby="logout-heading">
+    <!-- Heading with ID for screen readers -->
+    <h1 id="logout-heading">You have successfully logged out</h1>
 
-    <a href="{% url 'login' %}" class="btn btn-login">Login Again</a>
+    <!-- Informational text with clear context -->
+    <p role="status">We hope to see you again soon!</p>
 
-    <p>You will be redirected to the welcome page in <span id="countdown">5</span> seconds.</p>
+    <!-- Login button with ARIA label -->
+    <a href="{% url 'login' %}" class="btn btn-login" aria-label="Login again to Recipe App">Login Again</a>
+
+    <!-- Countdown information with ARIA live region -->
+    <p>
+        You will be redirected to the welcome page in
+        <span id="countdown" aria-live="polite">5</span> seconds.
+    </p>
 </section>
 
 <script>

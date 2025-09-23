@@ -1,9 +1,10 @@
-# search/forms.py
+# recipes/forms.py
 from django import forms
 from .models import Recipe
 
+# Choices for dropdown menus in search forms
 MEAL_TYPE_CHOICES = [
-    ("", "Any meal"),
+    ("", "Any meal"),        # Empty string = optional
     ("breakfast", "Breakfast"),
     ("lunch", "Lunch"),
     ("dinner", "Dinner"),
@@ -13,22 +14,28 @@ MEAL_TYPE_CHOICES = [
 ]
 
 DIFFICULTY_CHOICES = [
-    ("", "Any difficulty"),
+    ("", "Any difficulty"),  # Empty string = optional
     ("easy", "Easy"),
     ("medium", "Medium"),
     ("hard", "Hard"),
 ]
 
+# --- Create/Update Recipe Form ---
+# This is used when adding or editing a recipe.
 class RecipeForm(forms.ModelForm):
     class Meta:
         model = Recipe
-        fields = ["name", "ingredients", "instructions", "meal_type", "difficulty", "cooking_time", "pic"]
+        fields = [
+            "name", "ingredients", "instructions",
+            "meal_type", "difficulty", "cooking_time", "pic"
+        ]
         widgets = {
             "ingredients": forms.Textarea(attrs={"rows": 4}),
             "instructions": forms.Textarea(attrs={"rows": 6}),
         }
 
-# Quick header search form
+# --- Quick Search Form ---
+# Used in the site header for fast lookups by title only.
 class RecipeSearchForm(forms.Form):
     title = forms.CharField(
         label="",
@@ -39,7 +46,8 @@ class RecipeSearchForm(forms.Form):
         })
     )
 
-# Advanced search form for full search page
+# --- Advanced Search Form ---
+# Used on a dedicated search page with more filter options.
 class AdvancedSearchForm(forms.Form):
     name = forms.CharField(
         label="Recipe Name",
@@ -66,14 +74,3 @@ class AdvancedSearchForm(forms.Form):
         required=False,
         widget=forms.NumberInput(attrs={"placeholder": "e.g., 30"})
     )
-
-    class RecipeForm(forms.ModelForm):
-        class Meta:
-            model = Recipe
-            fields = ["name", "ingredients", "instructions", "meal_type", "difficulty", "cooking_time", "pic"]
-
-            widgets = {
-                "ingredients": forms.Textarea(attrs={"rows": 4}),
-                "instructions": forms.Textarea(attrs={"rows": 6}),
-            }
-

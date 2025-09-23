@@ -3,18 +3,29 @@
 {% block title %}Welcome | Recipe App{% endblock %}
 
 {% block content %}
-<section class="main-banner" style="background-image: url('{{ MEDIA_URL }}welcome.jpg');">
+<section class="main-banner" style="background-image: url('{{ MEDIA_URL }}welcome.jpg');" role="region"
+    aria-label="Welcome Banner">
+
     <div class="banner-content">
+        <!-- Main heading for screen readers -->
         <h1>Welcome!</h1>
 
         {% if user.is_authenticated %}
-            <!-- Show these if the user is logged in -->
-            <a href="{% url 'recipes:recipe_list' %}" class="btn btn-browse">Browse Recipes</a>
-            <a href="{% url 'logout' %}" class="btn btn-logout">Logout</a>
+        <!-- Buttons for logged-in users -->
+        <a href="{% url 'recipes:recipe_list' %}" class="btn btn-browse" role="button"
+            aria-label="Browse all recipes">Browse Recipes</a>
+
+        <form action="{% url 'logout' %}" method="post" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-logout" aria-label="Logout from Recipe App">Logout</button>
+        </form>
         {% else %}
-            <!-- Show this if the user is NOT logged in -->
-            <a href="{% url 'login' %}" class="btn btn-login">Login</a>
+        <!-- Buttons for users not logged in -->
+        <a href="{% url 'login' %}" class="btn btn-login" role="button" aria-label="Login to Recipe App">Login</a>
+        <a href="{% url 'signup' %}" class="btn btn-advanced-search" role="button"
+            aria-label="Sign up for Recipe App">Sign Up</a>
         {% endif %}
+
     </div>
 </section>
 {% endblock %}

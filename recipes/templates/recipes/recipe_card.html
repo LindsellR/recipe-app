@@ -1,31 +1,41 @@
-<div class="recipe-card">
+<div class="recipe-card" role="region" aria-labelledby="recipe-title-{{ recipe.id }}">
+
+  {# Recipe image #}
   {% if recipe.pic %}
-    <img src="{{ recipe.pic.url }}" alt="{{ recipe.name }}">
+  <img src="{{ recipe.pic.url }}" alt="Image of {{ recipe.name }}">
   {% else %}
-    <div class="no-image">No image</div>
+  <div class="no-image" aria-label="No image available">No image</div>
   {% endif %}
 
   <div class="recipe-info">
-    <h3>
+    {# Recipe name heading with link #}
+    <h3 id="recipe-title-{{ recipe.id }}">
       <a href="{% url 'recipes:recipe_detail' recipe.pk %}">
         {{ recipe.name }}
       </a>
     </h3>
 
+    {# Favourite buttons, with proper aria-labels #}
     {% if user.is_authenticated %}
-      {% if recipe.id in fav_ids %}
-        <form method="post" action="{% url 'users:remove_favourite' recipe.id %}">
-          {% csrf_token %}
-          <button type="submit" class="btn btn-fav btn-remove">Remove from Favourites</button>
-        </form>
-      {% else %}
-        <form method="post" action="{% url 'users:add_favourite' recipe.id %}">
-          {% csrf_token %}
-          <button type="submit" class="btn btn-fav btn-add">♡ Add to Favourites</button>
-        </form>
-      {% endif %}
+    {% if recipe.id in fav_ids %}
+    <form method="post" action="{% url 'users:remove_favourite' recipe.id %}">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-fav btn-remove" aria-label="Remove {{ recipe.name }} from favourites">
+        Remove from Favourites
+      </button>
+    </form>
     {% else %}
-      <a href="{% url 'login' %}" class="btn btn-fav btn-login">♡ Login to add</a>
+    <form method="post" action="{% url 'users:add_favourite' recipe.id %}">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-fav btn-add" aria-label="Add {{ recipe.name }} to favourites">
+        ♡ Add to Favourites
+      </button>
+    </form>
+    {% endif %}
+    {% else %}
+    <a href="{% url 'login' %}" class="btn btn-fav btn-login" aria-label="Login to add {{ recipe.name }} to favourites">
+      ♡ Login to add
+    </a>
     {% endif %}
   </div>
 </div>

@@ -37,9 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'widget_tweaks',
+
     #recipe_app related apps
     'recipes',
     'users',
+    
 ]
 
 MIDDLEWARE = [
@@ -127,3 +130,12 @@ MEDIA_ROOT= BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#For password reset
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+# Redirect users after login if no "next" parameter is provided
+LOGIN_REDIRECT_URL = '/recipes/list/'
+
+# Optional: redirect users after logout
+LOGOUT_REDIRECT_URL = '/logout/'  # or wherever you want

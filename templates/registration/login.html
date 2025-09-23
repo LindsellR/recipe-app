@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Login | Recipe App{% endblock %}
+
+{% block content %}
+<section class="login-section" role="region" aria-labelledby="login-heading">
+    <div class="login-container">
+        <h1 id="login-heading">Login</h1>
+
+        {# Display any error messages passed from the view #}
+        {% if error_message %}
+        <p class="error-message" role="alert">{{ error_message }}</p>
+        {% endif %}
+
+        <form action="" method="POST" class="login-form" aria-describedby="login-help" novalidate>
+            {% csrf_token %} {# CSRF token for security #}
+
+            {# Django form fields rendered as paragraphs #}
+            {{ form.as_p }}
+
+            {# Submit button for login form #}
+            <button type="submit" class="btn btn-login" aria-label="Login to Recipe App">Login</button>
+
+            {# Optional help text for screen readers #}
+            <p id="login-help" class="sr-only">
+                Enter your username and password to access your recipes.
+            </p>
+        </form>
+
+        {# Optional: links for password reset or registration with ARIA labels #}
+        <div class="login-links">
+            <a href="{% url 'password_reset' %}" aria-label="Reset your password">Forgot Password?</a>
+            <a href="{% url 'signup' %}" aria-label="Register a new account">Register</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

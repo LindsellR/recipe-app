@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from .views import signup_view
 
 app_name = 'users'
 
@@ -15,5 +16,8 @@ urlpatterns = [
     # Edit and Delete
     path('recipes/<int:recipe_id>/edit/', views.edit_recipe, name='edit_recipe'),
     path('recipes/<int:recipe_id>/delete/', views.delete_recipe, name='delete_recipe'),
+
+    #signup
+    path("signup/", signup_view, name="signup"),
 ]
 

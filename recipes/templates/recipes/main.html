@@ -1,13 +1,17 @@
 {% extends "base.html" %}
+
 {% block content %}
-<main>
-        <h1>All Recipes</h1>
+<main role="main">
+    <!-- Main heading for screen readers -->
+    <h1 id="all-recipes-heading">All Recipes</h1>
+
     <!-- Centered Advanced Search Button -->
     <div class="advanced-search-button-container">
-        <a href="{% url 'recipes:advanced-search' %}" class="btn btn-advanced-search">Advanced Search</a>
+        <a href="{% url 'recipes:advanced_search' %}" class="btn btn-advanced-search" role="button"
+            aria-label="Go to advanced recipe search">Advanced Search</a>
     </div>
 
-    <div class="card-container">
+    <div class="card-container" aria-labelledby="all-recipes-heading">
         {% for recipe in recipes %}
         {% include "recipes/recipe_card.html" %}
         {% empty %}

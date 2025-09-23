@@ -7,65 +7,71 @@
 
     <!-- Advanced Search Form -->
     <div class="search-container">
-        <form method="get" action="{% url 'recipes:advanced-search' %}" class="search-form">
-            {{ form.as_p }}
+        <form method="get" action="{% url 'recipes:advanced_search' %}" class="search-form"
+            aria-label="Advanced Search Form">
+            {{ form.as_p }} {# Render Django form fields #}
             <button type="submit" class="btn btn-search">Search</button>
         </form>
     </div>
 
     {% if recipes %}
     <div class="table-container">
-    <h3 style="text-align:center; margin-top:40px;">Search Results</h3>
-    <br>
-    <table class="advanced-search-table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Meal Type</th>
-                <th>Cooking Time</th>
-                <th>Difficulty</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for recipe in recipes %}
-            <tr>
-                <td><a href="{% url 'recipes:recipe_detail' recipe.id %}">{{ recipe.name }}</a></td>
-                <td>{{ recipe.meal_type }}</td>
-                <td>{{ recipe.cooking_time }}</td>
-                <td>{{ recipe.difficulty }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+        <h3 style="text-align:center; margin-top:40px;">Search Results</h3>
+        <br>
+
+        <!-- Accessible table for search results -->
+        <table class="advanced-search-table" role="table" aria-label="Search Results Table">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Meal Type</th>
+                    <th scope="col">Cooking Time</th>
+                    <th scope="col">Difficulty</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for recipe in recipes %}
+                <tr>
+                    <td><a href="{% url 'recipes:recipe_detail' recipe.id %}">{{ recipe.name }}</a></td>
+                    <td>{{ recipe.meal_type }}</td>
+                    <td>{{ recipe.cooking_time }}</td>
+                    <td>{{ recipe.difficulty }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
     {% elif request.GET %}
-    <p>No recipes found matching your criteria.</p>
+    <p role="status">No recipes found matching your criteria.</p>
     {% endif %}
     <br>
 
-    <!-- Charts -->
+    <!-- Charts Section -->
     {% if chart_bar or chart_pie or chart_line %}
-    
     <h2 style="text-align:center; margin-top:40px;">Visual Insights</h2>
     <div class="charts-container">
+
         {% if chart_bar %}
         <div class="chart-card">
             <h3>Recipe Difficulty Distribution</h3>
-            <img src="data:image/png;base64,{{ chart_bar }}" class="chart-img">
+            <img src="data:image/png;base64,{{ chart_bar }}" class="chart-img"
+                alt="Bar chart showing recipe difficulty distribution">
         </div>
         {% endif %}
 
         {% if chart_pie %}
         <div class="chart-card">
             <h3>Meal Type Distribution</h3>
-            <img src="data:image/png;base64,{{ chart_pie }}" class="chart-img">
+            <img src="data:image/png;base64,{{ chart_pie }}" class="chart-img"
+                alt="Pie chart showing meal type distribution">
         </div>
         {% endif %}
 
         {% if chart_line %}
         <div class="chart-card">
             <h3>Cooking Time per Recipe</h3>
-            <img src="data:image/png;base64,{{ chart_line }}" class="chart-img">
+            <img src="data:image/png;base64,{{ chart_line }}" class="chart-img"
+                alt="Line chart showing cooking time per recipe">
         </div>
         {% endif %}
 

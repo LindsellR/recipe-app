@@ -2,30 +2,46 @@
 {% load static %}
 
 {% block content %}
-<div class="recipe-detail-card">
-    <h1>{{ recipe.name }}</h1>
+<div class="recipe-detail-card" role="main" aria-labelledby="recipe-title">
+    {# Recipe title #}
+    <h1 id="recipe-title">{{ recipe.name }}</h1>
 
     <div class="recipe-detail-content">
+        {# Recipe image with descriptive alt text #}
         {% if recipe.pic %}
-        <img src="{{ recipe.pic.url }}" alt="{{ recipe.name }}" class="recipe-detail-image">
+        <img src="{{ recipe.pic.url }}" alt="Image of {{ recipe.name }}" class="recipe-detail-image">
         {% endif %}
 
         <div class="recipe-detail-info">
+            {# Description #}
             {% if recipe.description %}
             <p><strong>Description:</strong> {{ recipe.description }}</p>
             {% endif %}
+
             {% if recipe.ingredients %}
-            <p><strong>Ingredients:</strong> {{ recipe.ingredients }}</p>
+            <p><strong>Ingredients:</strong></p>
+            <ul class="ingredients-list">
+                {% for item in ingredients_list %}
+                <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
             {% endif %}
+
+
+
+            {# Instructions - consider adding aria-live for dynamic content if needed #}
             {% if recipe.instructions %}
             <p><strong>Instructions:</strong> {{ recipe.instructions }}</p>
             {% endif %}
+
             <p><strong>Preparation Time:</strong> {{ recipe.prep_time }} min</p>
             <p><strong>Cooking Time:</strong> {{ recipe.cooking_time }} min</p>
             <p><strong>Difficulty:</strong> {{ recipe.difficulty }}</p>
         </div>
     </div>
 
-    <a href="{% url 'recipes:recipe_list' %}" class="btn btn-back">← Back to all recipes</a>
+    {# Back link with descriptive text #}
+    <a href="{% url 'recipes:recipe_list' %}" class="btn btn-back" aria-label="Back to all recipes">← Back to all
+        recipes</a>
 </div>
 {% endblock %}
