@@ -1142,7 +1142,6 @@ Logout success
 
 /* Header Buttons*/
 .btn-home {
-    margin-left: 20px;
     background-color: #CBA135;
     color: #fff;
 }
@@ -1152,7 +1151,6 @@ Logout success
     color: #fff;
 }
 .btn-about {
-    margin-left: 20px;
     background-color: #CBA135;
     color: #fff;
 }
