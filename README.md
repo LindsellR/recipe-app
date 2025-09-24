@@ -33,7 +33,7 @@ A recipe app built on Django where users can create, edit, and manage recipes wi
 ## Project Structure
 ```
 
-src/
+Recipe_App/
 ├── recipe\_app/      # Project app
 ├── recipes/         # Recipe app containing Recipe model, views, static files, charts
 ├── users/           # Handles user profiles, authentication, and favourites
