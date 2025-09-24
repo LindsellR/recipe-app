@@ -24,24 +24,25 @@
     {% if request.resolver_match.url_name != "welcome" %}
     <header class="header-banner" role="banner">
 
-        <!-- Left: Logo + App Title + Home button + About Me button -->
+        <!-- Left: Logo + Title -->
         <div class="header-left">
             <a href="{% url 'recipes:recipe_list' %}" aria-label="Home">
                 <img src="/media/recipe_app_icon.jpg" alt="Recipe App Icon" class="app-icon">
             </a>
             <span class="app-title">Recipe App</span>
-            <a href="{% url 'recipes:recipe_list' %}" class="btn btn-home" aria-label="Go to Home Page">Home</a>
-            <a href="{% url 'about' %}" class="btn btn-about" aria-label="About the developer">About Me</a>
+
+            <!-- Hamburger for mobile -->
+            <button class="hamburger" aria-label="Toggle menu">&#9776;</button>
         </div>
 
-        <!-- Center: Header search form -->
+        <!-- Center: Search -->
         <form method="get" action="{% url 'recipes:search_recipes' %}" class="header-search" role="search"
             aria-label="Quick recipe search">
-            <label for="header-search-input" class="sr-only">Search recipes by title or ingredient</label>
+            <label for="header-search-input" class="sr-only"></label>
             <input type="text" id="header-search-input" name="q" placeholder="Search by recipe title or ingredient"
                 aria-label="Recipe search query">
 
-            <label for="header-meal-type" class="sr-only">Filter by meal type</label>
+            <label for="header-meal-type" class="sr-only"></label>
             <select name="meal_type" id="header-meal-type" aria-label="Filter recipes by meal type">
                 <option value="all">Any meal</option>
                 <option value="breakfast">Breakfast</option>
@@ -54,21 +55,24 @@
             <button type="submit" aria-label="Search recipes">Search</button>
         </form>
 
-        <!-- Right: User actions -->
+        <!-- Right: All buttons -->
         <div class="header-right">
-            {% if user.is_authenticated %}
-            <div class="user-menu" aria-label="User menu">
-                <a href="{% url 'users:profile' %}" class="btn btn-profile" aria-label="Go to your profile">User Profile</a>
-                <form action="{% url 'logout' %}" method="post" style="display:inline;" aria-label="Logout form">
+            <div class="header-links">
+                <a href="{% url 'recipes:recipe_list' %}" class="btn btn-home">Home</a>
+                <a href="{% url 'about' %}" class="btn btn-about">About Me</a>
+                {% if user.is_authenticated %}
+                <a href="{% url 'users:profile' %}" class="btn btn-profile">Profile</a>
+                <form action="{% url 'logout' %}" method="post" style="display:inline;">
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-logout" aria-label="Logout from Recipe App">Logout</button>
+                    <button type="submit" class="btn btn-logout">Logout</button>
                 </form>
+                {% else %}
+                <a href="{% url 'login' %}" class="btn btn-login">Login</a>
+                {% endif %}
             </div>
-            {% else %}
-            <a href="{% url 'login' %}" class="btn btn-login" aria-label="Login to Recipe App">Login</a>
-            {% endif %}
         </div>
     </header>
+
     {% endif %}
 
     <!-- Main content area -->
@@ -80,7 +84,14 @@
     <footer role="contentinfo" style="text-align:center; padding:20px; background:#d4edda; margin-top:20px;">
         <p>© 2025 Recipe App</p>
     </footer>
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const headerLinks = document.querySelector('.header-right');
 
+        hamburger.addEventListener('click', () => {
+            headerLinks.classList.toggle('active');
+        });
+    </script>
 </body>
 
 </html>

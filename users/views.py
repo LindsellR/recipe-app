@@ -9,7 +9,7 @@ from django.contrib import messages
 from django import forms
 from django.contrib.auth.models import User
 
-# Define a signup form (can also go in users/forms.py)
+# Define a signup form 
 from django import forms
 from django.contrib.auth.models import User
 

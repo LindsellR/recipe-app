@@ -21,13 +21,13 @@
             {# Submit button for login form #}
             <button type="submit" class="btn btn-login" aria-label="Login to Recipe App">Login</button>
 
-            {# Optional help text for screen readers #}
+            {# Help text for screen readers #}
             <p id="login-help" class="sr-only">
                 Enter your username and password to access your recipes.
             </p>
         </form>
 
-        {# Optional: links for password reset or registration with ARIA labels #}
+        {# Links for password reset or registration with ARIA labels #}
         <div class="login-links">
             <a href="{% url 'password_reset' %}" aria-label="Reset your password">Forgot Password?</a>
             <a href="{% url 'signup' %}" aria-label="Register a new account">Register</a>

@@ -5,85 +5,9 @@ body, h1, h2, h3, p, a {
     padding: 0;
 }
 
-/* Header Banner */
-/* Update header banner to distribute content */
-.header-banner {
-    background-color: #d4edda;
-    padding: 15px 20px;
-    margin-bottom: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* keep left + right aligned */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* Left side (icon + title) */
-.header-left {
-    display: flex;
-    align-items: center;
-}
-.app-icon {
-    width: 60px; /* smaller for a cleaner look */
-    height: auto; /* auto keeps the aspect ratio */
-    margin-right: 12px;
-}
-
-.app-title {
-    font-size: 1.6rem;  /* slightly smaller */
-    font-weight: 600;   /* medium bold */
-    color: #2f2f2f;
-    font-family: 'Helvetica Neue', Arial, sans-serif; /* modern sans-serif */
-}
-
-/* Centered search form */
-.header-search {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex: 1;                 /* take up remaining space */
-    justify-content: center;  /* center the search bar in that space */
-}
-
-.header-search input,
-.header-search select,
-.header-search button {
-    padding: 6px 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 0.9rem;
-}
-
-.header-search button {
-    background-color: #2c6f2c;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-}
-
-.header-search button:hover {
-    background-color: #145214;
-}
-
-
-/* Right side*/
-/* Right side: profile + logout */
-.user-menu {
-    display: flex;
-    gap: 10px;       /* space between profile and logout */
-    align-items: center;
-}
-
-/* Adjust header-right padding if needed */
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* space between Profile and Logout */
-    padding-right: 20px;
-}
-
-
-/* Main Banner */
+/*================
+    Welcome Page 
+==================*/
 .main-banner {
     position: relative;
     text-align: center;
@@ -127,7 +51,9 @@ body, h1, h2, h3, p, a {
     margin: 10px;
 }
 
-/* Login section */
+/* ===========
+Login/Signup section 
+=============*/
 .signup-section {
     display: flex;
     justify-content: center;
@@ -303,8 +229,199 @@ body, h1, h2, h3, p, a {
     }
 }
 
+/* ============
+Header Banner 
+==============*/
 
-/* Card Styling main.html */
+.header-banner {
+    background-color: #d4edda;
+    padding: 15px 20px;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* keep left + right aligned */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Left side (icon + title) */
+.header-left {
+    display: flex;
+    align-items: center;
+}
+.app-icon {
+    width: 60px; /* smaller for a cleaner look */
+    height: auto; /* auto keeps the aspect ratio */
+    margin-right: 12px;
+}
+
+.app-title {
+    font-size: 1.6rem;  /* slightly smaller */
+    font-weight: 600;   /* medium bold */
+    color: #2f2f2f;
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* modern sans-serif */
+}
+
+/* Centered search form */
+.header-search {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;                 /* take up remaining space */
+    justify-content: center;  /* center the search bar in that space */
+}
+.header-search input {
+    width: 15rem;
+}
+
+.header-search input,
+.header-search select,
+.header-search button {
+    padding: 6px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 0.9rem;
+}
+
+.header-search button {
+    background-color: #2c6f2c;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.header-search button:hover {
+    background-color: #145214;
+}
+
+
+/* Right side*/
+.user-menu {
+    display: flex;
+    gap: 10px;       /* space between profile and logout */
+    align-items: center;
+}
+
+/* Adjust header-right padding if needed */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* space between Profile and Logout */
+    padding-right: 20px;
+}
+
+/* Adjust button sizes */
+.header-right .btn {
+    padding: 5px 10px;  /* smaller buttons */
+    font-size: 0.85rem;
+}
+
+/* Header right now contains all buttons in a flex container */
+.header-right .header-links {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/* Hamburger menu hidden on desktop */
+.hamburger {
+    display: none;
+}
+
+/* ==========================
+   Responsive Header
+   ========================== */
+
+/* Tablet / smaller screens */
+@media (max-width: 768px) {
+    .header-banner {
+        flex-wrap: wrap;       /* allow items to stack */
+        justify-content: space-between;
+    }
+
+    .header-left {
+        flex: 1 1 100%;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+
+    .header-search {
+        flex: 1 1 100%;
+        margin-bottom: 10px 0;
+        gap: 5px;
+    }
+
+    .header-search input,
+    .header-search select,
+    .header-search button {
+        font-size: 0.8rem;
+        padding: 5px 8px;
+    }
+
+    .header-right .header-links {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+}
+
+/* Mobile / super small screens with hamburger menu */
+@media (max-width: 480px) {
+    .header-banner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-left {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .header-search {
+        width: 100%;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .header-search input,
+    .header-search select,
+    .header-search button {
+        width: 100%;
+    }
+
+    /* Show hamburger */
+    .hamburger {
+        display: block;
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        margin-left: auto;
+        cursor: pointer;
+    }
+
+    .header-right .header-links {
+        display: none;  /* hidden until hamburger is clicked */
+        flex-direction: column;
+        width: 100%;
+        gap: 5px;
+        margin-top: 5px;
+    }
+
+    .header-right.active .header-links {
+        display: flex;
+    }
+
+    .header-right {
+        width: 100%;
+        justify-content: flex-start;
+        margin-top: 5px;
+    }
+}
+
+
+/* ===========================
+Recipe list view/ Card Styling 
+==============================*/
+
 .recipe-cards {
     display: flex;
     flex-wrap: wrap;
@@ -444,7 +561,10 @@ main > h1 {
     padding: 10px;
 }
 
-/* Recipe Detail Styling */
+/*=================
+Recipe Detail View 
+===================*/
+
 .recipe-detail-card {
     max-width: 800px;
     margin: 40px auto;
@@ -516,7 +636,10 @@ main > h1 {
     }
 }
 
-/*Styling for success.html*/
+/*=============
+Logout success
+===============*/
+
 .logout-success {
     text-align: center;
     padding: 50px;
@@ -527,7 +650,10 @@ main > h1 {
     margin-bottom: 20px;
 }
 
-/* Advanced search view styling */
+/*===================
+ Advanced search view 
+ ====================*/
+
 .advanced-search-page .search-container {
     display: flex;
     flex-direction: column;
@@ -583,7 +709,10 @@ main > h1 {
     background-color: #a67c28;
 }
 
-/* Search results table */
+/*====================
+ Search results table 
+ =====================*/
+
 .search-results {
     margin-top: 35px;
     overflow-x: auto; /* responsive for small screens */
@@ -618,7 +747,10 @@ main > h1 {
     text-decoration: underline;
 }
 
-/* Advanced search results table */
+/*=============================
+ Advanced search results table 
+ ==============================*/
+
 /* Main wrapper for advanced search page */
 .advanced-search-page {
     padding: 0 20px; /* space at the sides */
@@ -683,7 +815,10 @@ main > h1 {
     text-decoration: underline;
 }
 
-/* Charts container */
+/*================
+ Charts container
+ ================*/
+
 .charts-container {
     display: flex;
     flex-wrap: wrap;
@@ -717,7 +852,9 @@ main > h1 {
     font-size: 1.2rem;
 }
 
-/* User profile & general container */
+/*================================
+ User profile and user input forms
+ =================================*/
 
 /* Add some padding on the main content */
 .container, main {
@@ -893,10 +1030,101 @@ main > h1 {
     }
 }
 
-/*Button Styling*/
 /* ==========================
-   Base Button Style
+   Password Reset Page
    ========================== */
+.password-reset-section {
+    padding: 3rem 1rem;
+    background-color: #FAF3E0;
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.reset-container {
+    max-width: 500px;
+    width: 100%;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.reset-container h1 {
+    margin-bottom: 1rem;
+    color: #3B3B58;
+}
+
+.reset-container p {
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+.reset-form .form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.reset-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #3B3B58;
+}
+
+.reset-form .input-field {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #CBA135;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.btn-reset {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 10px 25px;
+    background-color: #CBA135;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-reset:hover {
+    background-color: #a67c28;
+}
+
+.btn-login {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 10px 20px;
+    background-color: #2c6f2c;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.btn-login:hover {
+    background-color: #145214;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .reset-container {
+        padding: 1.5rem;
+    }
+}
+
+
+/*==============
+ Button Styling
+================ */
+
+/* Base Button Style*/
 .btn {
     display: inline-flex;
     align-items: center;
@@ -912,9 +1140,7 @@ main > h1 {
     transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
-/* ==========================
-   Header Buttons
-   ========================== */
+/* Header Buttons*/
 .btn-home {
     margin-left: 20px;
     background-color: #CBA135;
@@ -965,9 +1191,7 @@ main > h1 {
     background-color: #a67c28;
 }
 
-/* ==========================
-   Main Page / Action Buttons
-   ========================== */
+/* Main Page / Action Buttons */
 .btn-browse {
     background-color: #d4edda;
     color: #333;
@@ -1033,9 +1257,7 @@ main > h1 {
     transform: translateY(-2px);
 }
 
-/* ==========================
-   Form Buttons
-   ========================== */
+/* Form Buttons */
 .login-form button.btn-login,
 .profile-form button.btn-profile {
     width: 100%;
@@ -1082,7 +1304,10 @@ main > h1 {
     transform: translateY(-2px);
 }
 
-/*Messages*/
+/*=======
+ Messages
+ ========*/
+
 .messages {
     margin-bottom: 1rem;
 }
@@ -1118,7 +1343,9 @@ main > h1 {
     border: 1px solid #bee5eb;
 }
 
-/*About Me page*/
+/*===========
+About Me page
+=============*/
 .about-container {
     max-width: 1000px;
     margin: 0 auto;
