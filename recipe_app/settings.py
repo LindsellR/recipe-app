@@ -26,7 +26,10 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', "django-insecure-a1cb@hq4kdc@9&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = ["fierce-oasis-53323.herokuapp.com"]
+ALLOWED_HOSTS = [
+    "fierce-oasis-53323.herokuapp.com",
+    "fierce-oasis-53323-7bc2a4e0b203.herokuapp.com"
+]
 
 
 # Application definition
