@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
+
 import os
 from pathlib import Path
 import dj_database_url
@@ -21,14 +22,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', "django-insecure-a1cb@hq4kdc@9&5mm793495&hobk*refi693%#6+%p5y$p4g^-")
+SECRET_KEY = os.environ.get(
+    "DJANGO_SECRET_KEY",
+    "django-insecure-a1cb@hq4kdc@9&5mm793495&hobk*refi693%#6+%p5y$p4g^-",
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = [
     "fierce-oasis-53323.herokuapp.com",
-    "fierce-oasis-53323-7bc2a4e0b203.herokuapp.com"
+    "fierce-oasis-53323-7bc2a4e0b203.herokuapp.com",
+    "localhost", "127.0.0.1"
 ]
 
 
@@ -153,4 +158,3 @@ LOGOUT_REDIRECT_URL = "/logout/"  # or wherever you want
 db_from_env = dj_database_url.config(conn_max_age=500, default=None)
 if db_from_env:
     DATABASES["default"].update(db_from_env)
-
