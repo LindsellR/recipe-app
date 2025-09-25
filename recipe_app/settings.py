@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', "django-insecure-a1cb@hq4kdc@9&5mm793495&hobk*refi693%#6+%p5y$p4g^-")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.environ.get("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = ["fierce-oasis-53323-7bc2a4e0b203.herokuapp.com/"]
+ALLOWED_HOSTS = ["fierce-oasis-53323.herokuapp.com/"]
 
 
 # Application definition
