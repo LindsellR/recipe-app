@@ -1,0 +1,1408 @@
+/* Font */
+body, h1, h2, h3, p, a {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/*================
+    Welcome Page 
+==================*/
+.main-banner {
+    position: relative;
+    text-align: center;
+    color: rgb(5, 0, 0); /* ensure text is readable */
+    height: 60vh; /* takes up 60% of viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+}
+
+.main-banner h1 {
+    font-size: 3rem;
+    margin-top: 20px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.banner-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Overlay content */
+ .banner-content {
+    background: rgba(255, 255, 255, 0.7); /* white with transparency */
+    padding: 20px 40px;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+
+.banner-content h1 {
+    font-size: 4rem;
+    margin-bottom: 30px;
+}
+
+.banner-content a {
+    margin: 10px;
+}
+
+/* ===========
+Login/Signup section 
+=============*/
+.signup-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    background-color: #f8f8f8;
+    padding: 50px 20px;
+}
+
+.signup-container {
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Login page styling */
+.login-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh; /* vertical spacing from header/footer */
+    background-color: #f8f8f8; /* subtle background */
+    padding: 50px 20px;
+}
+
+.login-container {
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+.login-container h1 {
+    font-size: 2.5rem;
+    color: #2a7a2a;
+    margin-bottom: 20px;
+}
+
+.error-message {
+    color: #ff4d4d;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* Form fields styling */
+.login-form input {
+    width: 100%;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+/* Signup Section */
+.signup-section {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    background-color: #FAF3E0; /* light cream */
+    min-height: 80vh;
+}
+
+.signup-container {
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+/* Form heading */
+.signup-container h1 {
+    font-family: 'Cinzel', serif;
+    text-align: center;
+    margin-bottom: 25px;
+    color: #3B3B58; /* deep indigo */
+}
+
+/* Form groups */
+.signup-form .form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Labels */
+.signup-form label {
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #3B3B58;
+}
+
+/* Input fields */
+.signup-form input.input-field {
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid #CBA135; /* gold accent */
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Input focus state */
+.signup-form input.input-field:focus {
+    border-color: #3B3B58;
+    box-shadow: 0 0 0 3px rgba(59, 59, 88, 0.2);
+}
+
+/* Buttons */
+.signup-form button.btn-signup {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: none;
+    background-color: #3B3B58;
+    color: #FAF3E0;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.signup-form button.btn-signup:hover {
+    background-color: #2a2a44;
+}
+
+/* Messages */
+.messages .message {
+    padding: 10px 15px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.messages .message.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.messages .message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Small text links */
+.signup-container p {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.signup-container a {
+    color: #CBA135;
+    text-decoration: none;
+}
+
+.signup-container a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .signup-container {
+        padding: 20px;
+    }
+}
+
+/* ============
+Header Banner 
+==============*/
+
+.header-banner {
+    background-color: #d4edda;
+    padding: 15px 20px;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* keep left + right aligned */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Left side (icon + title) */
+.header-left {
+    display: flex;
+    align-items: center;
+}
+.app-icon {
+    width: 60px; /* smaller for a cleaner look */
+    height: auto; /* auto keeps the aspect ratio */
+    margin-right: 12px;
+}
+
+.app-title {
+    font-size: 1.6rem;  /* slightly smaller */
+    font-weight: 600;   /* medium bold */
+    color: #2f2f2f;
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* modern sans-serif */
+}
+
+/* Centered search form */
+.header-search {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;                 /* take up remaining space */
+    justify-content: center;  /* center the search bar in that space */
+}
+.header-search input {
+    width: 15rem;
+}
+
+.header-search input,
+.header-search select,
+.header-search button {
+    padding: 6px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 0.9rem;
+}
+
+.header-search button {
+    background-color: #2c6f2c;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.header-search button:hover {
+    background-color: #145214;
+}
+
+
+/* Right side*/
+.user-menu {
+    display: flex;
+    gap: 10px;       /* space between profile and logout */
+    align-items: center;
+}
+
+/* Adjust header-right padding if needed */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* space between Profile and Logout */
+    padding-right: 20px;
+}
+
+/* Adjust button sizes */
+.header-right .btn {
+    padding: 5px 10px;  /* smaller buttons */
+    font-size: 0.85rem;
+}
+
+/* Header right now contains all buttons in a flex container */
+.header-right .header-links {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/* Hamburger menu hidden on desktop */
+.hamburger {
+    display: none;
+}
+
+/* ==========================
+   Responsive Header
+   ========================== */
+
+/* Tablet / smaller screens */
+@media (max-width: 768px) {
+    .header-banner {
+        flex-wrap: wrap;       /* allow items to stack */
+        justify-content: space-between;
+    }
+
+    .header-left {
+        flex: 1 1 100%;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+
+    .header-search {
+        flex: 1 1 100%;
+        margin-bottom: 10px 0;
+        gap: 5px;
+    }
+
+    .header-search input,
+    .header-search select,
+    .header-search button {
+        font-size: 0.8rem;
+        padding: 5px 8px;
+    }
+
+    .header-right .header-links {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+}
+
+/* Mobile / super small screens with hamburger menu */
+@media (max-width: 480px) {
+    .header-banner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-left {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .header-search {
+        width: 100%;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .header-search input,
+    .header-search select,
+    .header-search button {
+        width: 100%;
+    }
+
+    /* Show hamburger */
+    .hamburger {
+        display: block;
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        margin-left: auto;
+        cursor: pointer;
+    }
+
+    .header-right .header-links {
+        display: none;  /* hidden until hamburger is clicked */
+        flex-direction: column;
+        width: 100%;
+        gap: 5px;
+        margin-top: 5px;
+    }
+
+    .header-right.active .header-links {
+        display: flex;
+    }
+
+    .header-right {
+        width: 100%;
+        justify-content: flex-start;
+        margin-top: 5px;
+    }
+}
+
+
+/* ===========================
+Recipe list view/ Card Styling 
+==============================*/
+
+.recipe-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Even spacing across the row */
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.recipe-card {
+    flex: 1 1 220px; /* Grow, shrink, basis */
+    max-width: 250px; /* Prevent too wide on large screens */
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.recipe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+.recipe-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 10px;
+    font-family: "Arial", sans-serif;
+}
+
+.card-content h2 {
+    font-size: 1.2rem;
+    margin: 0 0 5px 0;
+}
+
+.card-content h2 a {
+    text-decoration: none;
+    color: #2a7a2a;
+}
+
+.card-content h2 a:hover {
+    text-decoration: underline;
+}
+
+.card-content p {
+    margin: 2px 0;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.no-image {
+    width: 100%;
+    height: 150px;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .recipe-card {
+        flex: 1 1 45%; /* 2 cards per row */
+    }
+}
+
+@media (max-width: 600px) {
+    .recipe-card {
+        flex: 1 1 90%; /* 1 card per row */
+    }
+}
+
+/* Links Styling */
+a {
+    text-decoration: none;
+    color: #2c6f2c; /* dark green */
+    font-weight: bold;
+}
+
+a:hover {
+    color: #145214; /* darker green on hover */
+}
+
+/* Main page title (All Recipes) */
+/* Center and space the All Recipes title */
+main > h1 {
+    text-align: center;
+    margin-top: 40px;   /* space from header */
+    margin-bottom: 30px; /* space before cards */
+    font-size: 2.5rem;
+    color: #2a7a2a;
+}
+
+/* main.html card styling*/
+.advanced-search-button-container {
+    text-align: center;       /* center the button horizontally */
+    margin: 20px 0;           /* space between heading and cards */
+}
+
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center; /* centers cards */
+    padding: 20px;            /* add space at the edges of the container */
+    box-sizing: border-box;   /* ensures padding doesn’t increase width */
+}
+ .recipe-card {
+    width: 250px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.recipe-card:hover {
+    transform: translateY(-5px);
+}
+
+.recipe-card-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.recipe-card-content {
+    padding: 10px;
+}
+
+/*=================
+Recipe Detail View 
+===================*/
+
+.recipe-detail-card {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.recipe-detail-card h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #2a7a2a;
+    text-align: center;
+}
+
+.recipe-detail-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.recipe-detail-image {
+    max-width: 300px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.recipe-detail-info {
+    flex: 1;
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.6;
+}
+
+/* Paragraphs inside info */
+.recipe-detail-info p {
+    margin-bottom: 10px;
+}
+
+/* New styling for ingredients list */
+.recipe-detail-info ul.ingredients-list {
+    list-style-type: disc;   /* bullet points */
+    margin: 5px 0 15px 20px; /* top 5px, bottom 15px, left 20px indent */
+    padding-left: 0;
+}
+
+.recipe-detail-info ul.ingredients-list li {
+    margin-bottom: 4px;      /* spacing between items */
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .recipe-detail-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .recipe-detail-image {
+        max-width: 100%;
+    }
+
+    .recipe-detail-info {
+        width: 100%;
+    }
+}
+
+/*=============
+Logout success
+===============*/
+
+.logout-success {
+    text-align: center;
+    padding: 50px;
+}
+
+.logout-success h1 {
+    color: #3B3B58;
+    margin-bottom: 20px;
+}
+
+/*===================
+ Advanced search view 
+ ====================*/
+
+.advanced-search-page .search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* centers children horizontally */
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;       /* centers container in page */
+}
+
+.advanced-search-page h2,
+.advanced-search-page h3,
+.advanced-search-page p {
+    text-align: center;
+    width: 100%;
+}
+
+.advanced-search-page .search-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;  /* centers form elements */
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.search-form {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-form input,
+.search-form select {
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.search-form button.btn-search {
+    background-color: #CBA135;
+    color: #FAF3E0;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+.search-form button.btn-search:hover {
+    background-color: #a67c28;
+}
+
+/*====================
+ Search results table 
+ =====================*/
+
+.search-results {
+    margin-top: 35px;
+    overflow-x: auto; /* responsive for small screens */
+}
+
+.search-results table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Roboto', sans-serif;
+}
+
+.search-results th,
+.search-results td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+    font-size: 0.95rem;
+}
+
+.search-results th {
+    background-color: #3B3B58;
+    color: #FAF3E0;
+}
+
+.search-results td a {
+    color: #2c6f2c;
+    text-decoration: none;
+}
+
+.search-results td a:hover {
+    color: #145214;
+    text-decoration: underline;
+}
+
+/*=============================
+ Advanced search results table 
+ ==============================*/
+
+/* Main wrapper for advanced search page */
+.advanced-search-page {
+    padding: 0 20px; /* space at the sides */
+    max-width: 1200px;
+    margin: 0 auto;  /* center everything */
+}
+
+/* Center the search form */
+.advanced-search-page .search-container {
+    display: flex;
+    justify-content: center; /* center form horizontally */
+    margin-bottom: 30px;    /* space below form */
+}
+
+/* Adjust spacing between form fields */
+.advanced-search-page .search-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;  /* space between fields */
+    justify-content: center;
+}
+
+/* Table styling */
+.table-container {
+    margin: 40px 0; /* space above and below table */
+    overflow-x: auto; /* for small screens */
+}
+
+.advanced-search-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+}
+
+.advanced-search-table th,
+.advanced-search-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.advanced-search-table th {
+    background-color: #3B3B58;
+    color: #FAF3E0;
+}
+
+.advanced-search-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.advanced-search-table tr:hover {
+    background-color: #e6f7ff;
+}
+
+.advanced-search-table a {
+    color: #2c6f2c;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.advanced-search-table a:hover {
+    text-decoration: underline;
+}
+
+/*================
+ Charts container
+ ================*/
+
+.charts-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;   /* center charts horizontally */
+    gap: 30px;                 /* space between charts */
+    margin: 50px 0;            /* space above and below charts */
+}
+
+/* Individual chart card */
+.chart-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    max-width: 400px;          /* width limit */
+    flex: 1 1 300px;           /* flexible for responsive layout */
+}
+
+/* Chart images */
+.chart-img {
+    width: 100%;               /* responsive width */
+    height: auto;
+    margin-top: 10px;
+}
+
+/* Chart headings */
+.chart-card h3 {
+    color: #2a7a2a;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+/*================================
+ User profile and user input forms
+ =================================*/
+
+/* Add some padding on the main content */
+.container, main {
+    padding: 0 2rem; /* space from edges of browser */
+}
+
+/* Profile page layout */
+.profile-page {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+}
+
+/* Profile card / edit form card */
+.profile-card, .profile-form {
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+/* Headings */
+.profile-card h1, .profile-form h1 {
+    font-size: 2rem;
+    color: #2a7a2a;
+    margin-bottom: 15px;
+}
+
+/* Paragraph text */
+.profile-card p, .profile-form p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+/* Success message */
+.success-message {
+    background-color: #d4edda;
+    padding: 10px 15px;
+    border-radius: 6px;
+    color: #2c6f2c;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Profile links (used on profile page) */
+.profile-links {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 25px;
+}
+
+.profile-links li {
+    margin: 10px 0;
+}
+
+.profile-links a {
+    text-decoration: none;
+    color: #2c6f2c;
+    font-weight: bold;
+    padding: 8px 12px;
+    display: inline-block;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.profile-links a:hover {
+    background-color: #145214;
+    color: #fff;
+}
+
+/* Logout form */
+.profile-logout-form {
+    margin-top: 20px;
+}
+
+
+/* Edit profile form elements */
+.profile-form .form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.profile-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #2a7a2a;
+}
+
+.profile-form input {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+/* Form helper text */
+.profile-form .form-text {
+    font-size: 0.85rem;
+    color: #555;
+}
+
+/* Add/Edit Recipe Page */
+
+/* Center the form container */
+.recipe-form-page {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+}
+
+/* Form card styling */
+.recipe-form-card {
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    max-width: 600px;
+    width: 100%;
+}
+
+/* Heading */
+.recipe-form-card h2 {
+    font-size: 2rem;
+    color: #2a7a2a;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Form groups */
+.recipe-form-card form {
+    display: flex;
+    flex-direction: column;
+}
+
+.recipe-form-card form p {
+    margin-bottom: 15px;
+}
+
+/* Labels */
+.recipe-form-card label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #2a7a2a;
+}
+
+/* Inputs and file fields */
+.recipe-form-card input,
+.recipe-form-card textarea,
+.recipe-form-card select {
+    width: 100%;
+    padding: 8px 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .recipe-form-card {
+        padding: 20px;
+    }
+}
+
+/* ==========================
+   Password Reset Page
+   ========================== */
+.password-reset-section {
+    padding: 3rem 1rem;
+    background-color: #FAF3E0;
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.reset-container {
+    max-width: 500px;
+    width: 100%;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.reset-container h1 {
+    margin-bottom: 1rem;
+    color: #3B3B58;
+}
+
+.reset-container p {
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+.reset-form .form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.reset-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #3B3B58;
+}
+
+.reset-form .input-field {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #CBA135;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.btn-reset {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 10px 25px;
+    background-color: #CBA135;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-reset:hover {
+    background-color: #a67c28;
+}
+
+.btn-login {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 10px 20px;
+    background-color: #2c6f2c;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.btn-login:hover {
+    background-color: #145214;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .reset-container {
+        padding: 1.5rem;
+    }
+}
+
+
+/*==============
+ Button Styling
+================ */
+
+/* Base Button Style*/
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 18px;     /* consistent horizontal + vertical spacing */
+    height: auto;           /* uniform height */
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+/* Header Buttons*/
+.btn-home {
+    background-color: #CBA135;
+    color: #fff;
+}
+
+.btn-home:hover {
+    background-color: #a67c28;
+    color: #fff;
+}
+.btn-about {
+    background-color: #CBA135;
+    color: #fff;
+}
+.btn-about:hover {
+    background-color: #a67c28;
+    color: #fff;
+}
+
+.btn-profile {
+    background-color: #2c6f2c;
+    color: #fff;
+}
+
+.btn-profile:hover {
+    background-color: #145214;
+    color: #fff;
+}
+
+.btn-login {
+    margin: 10px;
+    background-color: #2c6f2c;
+    color: #fff;
+}
+
+.btn-login:hover {
+    background-color: #145214;
+  
+}
+
+.btn-logout {
+    background-color: #CBA135;
+    color: #fff;
+}
+
+.btn-logout:hover {
+    background-color: #a67c28;
+}
+
+/* Main Page / Action Buttons */
+.btn-browse {
+    background-color: #d4edda;
+    color: #333;
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-browse:hover {
+    background-color: #b1dfbb;
+    transform: scale(1.05);
+}
+
+.btn-fav {
+    margin: 5px;
+    background-color: #d4edda;
+    color: #333;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-fav:hover {
+    background-color: #bce0b0;
+    transform: translateY(-2px);
+}
+
+.btn-advanced-search {
+    background-color: #CBA135;
+    color: #FAF3E0;
+    padding: 10px 18px;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+.btn-advanced-search:hover {
+    background-color: #a67c28;
+    color: #FAF3E0;
+    transform: translateY(-2px);
+}
+
+.btn-back {
+     width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    display: inline-flex;        
+    align-items: center;         
+    justify-content: center;     
+    text-align: center;
+    box-sizing: border-box;      
+    margin-top: 10px;
+    background-color: #bce0b0;
+}
+
+.btn-back:hover {
+    background-color: #a67c28;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Form Buttons */
+.login-form button.btn-login,
+.profile-form button.btn-profile {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+.recipe-form-card .btn-success,
+.recipe-form-card .btn-secondary{
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    display: inline-flex;        
+    align-items: center;         
+    justify-content: center;     
+    text-align: center;
+    box-sizing: border-box;      
+    margin-top: 10px;
+}
+
+/* Success / Primary Buttons */
+.recipe-form-card .btn-success,
+.profile-form button.btn-profile {
+    background-color: #2c6f2c;
+    color: #fff;
+}
+
+.recipe-form-card .btn-success:hover,
+.profile-form button.btn-profile:hover {
+    background-color: #145214;
+    transform: translateY(-2px);
+}
+
+/* Secondary / Back Buttons */
+.recipe-form-card .btn-secondary,
+.profile-form .btn-back {
+    background-color: #CBA135;
+    color: #fff;
+}
+
+.recipe-form-card .btn-secondary:hover,
+.profile-form .btn-back:hover {
+    background-color: #a67c28;
+    transform: translateY(-2px);
+}
+
+/*=======
+ Messages
+ ========*/
+
+.messages {
+    margin-bottom: 1rem;
+}
+
+.message {
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.message.warning {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+}
+
+.message.info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
+
+/*===========
+About Me page
+=============*/
+.about-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.about-image img {
+    width: 200px;
+    height: auto;
+    border-radius: 5%;
+    object-fit: cover;
+    border: 3px solid #CBA135;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text p {
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.btn-portfolio {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #CBA135;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn-portfolio:hover {
+    background-color: #a67c28;
+    color: #fff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .about-image img {
+        width: 150px;
+        margin-bottom: 1rem;
+    }
+
+    .about-text {
+        flex: none;
+    }
+}

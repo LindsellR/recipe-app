@@ -122,9 +122,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = "/static/"
-STATICFILES_DIRS = [BASE_DIR / "static"]
+
 # The absolute path to the directory where collectstatic will collect static files for deployment.
 STATIC_ROOT = BASE_DIR / "staticfiles"
+
+# Whitenoise compressed files support
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
@@ -144,5 +147,7 @@ LOGIN_REDIRECT_URL = "/recipes/list/"
 LOGOUT_REDIRECT_URL = "/logout/"  # or wherever you want
 
 # Heroku: Update database configuration from $DATABASE_URL.
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES["default"].update(db_from_env)
+db_from_env = dj_database_url.config(conn_max_age=500, default=None)
+if db_from_env:
+    DATABASES["default"].update(db_from_env)
+
