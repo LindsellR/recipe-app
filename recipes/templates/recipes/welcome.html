@@ -1,10 +1,14 @@
 {% extends "base.html" %}
+{% load static %}
+
 
 {% block title %}Welcome | Recipe App{% endblock %}
 
 {% block content %}
-<section class="main-banner" style="background-image: url('{{ MEDIA_URL }}welcome.jpg');" role="region"
-    aria-label="Welcome Banner">
+<section class="main-banner" 
+         style="background-image: url('{% static 'site_images/welcome.jpg' %}');" 
+         role="region"
+         aria-label="Welcome Banner">
 
     <div class="banner-content">
         <!-- Main heading for screen readers -->

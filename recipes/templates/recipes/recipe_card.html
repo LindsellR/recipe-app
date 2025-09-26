@@ -2,7 +2,10 @@
 
   {# Recipe image #}
   {% if recipe.pic %}
-  <img src="{{ recipe.pic.url }}" alt="Image of {{ recipe.name }}">
+  {% load static %}
+  <img src="{% static '' %}{{ recipe.pic }}" alt="{{ recipe.name }}" class="recipe-detail-image">
+
+
   {% else %}
   <div class="no-image" aria-label="No image available">No image</div>
   {% endif %}

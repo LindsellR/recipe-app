@@ -9,7 +9,10 @@
     <div class="recipe-detail-content">
         {# Recipe image with descriptive alt text #}
         {% if recipe.pic %}
-        <img src="{{ recipe.pic.url }}" alt="Image of {{ recipe.name }}" class="recipe-detail-image">
+        {% load static %}
+        {% load static %}
+        <img src="{% static '' %}{{ recipe.pic }}" alt="{{ recipe.name }}" class="recipe-detail-image">
+
         {% endif %}
 
         <div class="recipe-detail-info">

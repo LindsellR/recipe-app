@@ -55,10 +55,11 @@ class Recipe(models.Model):
     )
 
     # --- Media and ownership ---
-    pic = models.ImageField(
-        upload_to="recipes",          # stored in MEDIA_ROOT/recipes/
-        default="no_picture.jpg"
-    )
+    pic = models.CharField(
+    max_length=100,
+    default="no_picture.jpg",
+    help_text="Filename of the recipe image in static/recipes/images/"
+)
     created_by = models.ForeignKey(
         User,
         on_delete=models.CASCADE,

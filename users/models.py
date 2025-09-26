@@ -8,7 +8,11 @@ class Favourite(models.Model):
     recipe = models.ForeignKey(
         Recipe, on_delete=models.CASCADE, related_name="favourited_by"
     )
-    pic = models.ImageField(upload_to="favourites", default="no_picture.jpg")
+    pic = models.CharField(
+        max_length=100,
+        default="no_picture.jpg",
+        help_text="Filename of the favourite recipe image in static/recipes/images/"
+    )
 
     class Meta:
         unique_together = ("user", "recipe")

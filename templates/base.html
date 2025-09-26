@@ -1,5 +1,6 @@
 <!-- recipes/templates/recipes/base.html -->
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -27,7 +28,10 @@
         <!-- Left: Logo + Title -->
         <div class="header-left">
             <a href="{% url 'recipes:recipe_list' %}" aria-label="Home">
-                <img src="/media/recipe_app_icon.jpg" alt="Recipe App Icon" class="app-icon">
+                {% load static %}
+                {% load static %}
+                <img src="{% static 'site_images/recipe_app_icon.jpg' %}" alt="Site Icon" class="app-icon">
+
             </a>
             <span class="app-title">Recipe App</span>
 
