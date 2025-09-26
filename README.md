@@ -5,7 +5,7 @@ This is a Django-based Recipe App where users can view, search, and manage recip
 
 ## Live Demo
 
-Check out the live Recipe App here: [Recipe App](https://fierce-oasis-53323.herokuapp.com/)
+Check out the live Recipe App here: [Recipe App](https://fierce-oasis-53323-7bc2a4e0b203.herokuapp.com/recipes/welcome/)
 
 ---
 
