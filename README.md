@@ -1,5 +1,13 @@
-# Recipe App
-A recipe app built on Django where users can create, edit, and manage recipes with ingredients, instructions, cooking time, and automatic difficulty calculation. Users can also search for recipes, save their favourites, manage their profile, and reset their password.
+## About the Project
+
+This is a Django-based Recipe App where users can view, search, and manage recipes. For this portfolio version, all images—including recipe images and site icons—are stored in **static files** rather than uploaded by users. This approach ensures that all images load correctly both locally and on the live Heroku site, without requiring cloud storage. While in a production app images would normally be uploaded and managed separately, using static files keeps the demo stable and fully functional for showcasing purposes.
+
+
+## Live Demo
+
+Check out the live Recipe App here: [Recipe App](https://fierce-oasis-53323.herokuapp.com/)
+
+---
 
 ## Features
 
