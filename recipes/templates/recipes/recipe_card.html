@@ -1,9 +1,11 @@
+ {% load static %}
+
 <div class="recipe-card" role="region" aria-labelledby="recipe-title-{{ recipe.id }}">
 
   {# Recipe image #}
   {% if recipe.pic %}
-  {% load static %}
-  <img src="{% static '' %}{{ recipe.pic }}" alt="{{ recipe.name }}" class="recipe-detail-image">
+ 
+  <img src="{% static recipe.pic %}" alt="{{ recipe.name }}" class="recipe-detail-image">
 
 
   {% else %}

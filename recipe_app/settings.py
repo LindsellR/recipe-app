@@ -132,7 +132,8 @@ USE_TZ = True
 STATIC_URL = "/static/"
 
 STATICFILES_DIRS = [
-    BASE_DIR / "static"] #main static folder
+    BASE_DIR / "static", #site images
+    BASE_DIR / "recipes" / "static"] #recipe images
 
 # The absolute path to the directory where collectstatic will collect static files for deployment.
 STATIC_ROOT = BASE_DIR / "staticfiles"
