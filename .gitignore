@@ -214,3 +214,7 @@ __marimo__/
 
 # Database
 *.sqlite3
+
+# Don’t track the collected static folder
+/staticfiles/
+/staticfiles/
