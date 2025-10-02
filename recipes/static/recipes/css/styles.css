@@ -1406,3 +1406,18 @@ About Me page
         flex: none;
     }
 }
+
+/* Make placeholder text use the same font as the rest of the form */
+input::placeholder,
+textarea::placeholder {
+    font-family: inherit;      /* use the same font as the input/textarea */
+    font-size: inherit;        /* match font size */
+    color: #6c757d;            /* optional: placeholder color */
+}
+
+/* Optional: ensure text you type also matches */
+input,
+textarea {
+    font-family: inherit;
+    font-size: 1rem;           /* match your other form fields */
+}

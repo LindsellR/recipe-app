@@ -8,6 +8,8 @@
     <title>{% block title %}Recipe App{% endblock %}</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'recipes/css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
 </head>
 
 <body>
@@ -28,12 +30,12 @@
         <!-- Left: Logo + Title -->
         <div class="header-left">
             <a href="{% url 'recipes:recipe_list' %}" aria-label="Home">
-                {% load static %}
-                {% load static %}
                 <img src="{% static 'site_images/recipe_app_icon.jpg' %}" alt="Site Icon" class="app-icon">
 
             </a>
-            <span class="app-title">Recipe App</span>
+            <a href="{% url 'recipes:recipe_list' %}" aria-label="Home">
+                <span class="app-title">Recipe App</span>
+            </a>
 
             <!-- Hamburger for mobile -->
             <button class="hamburger" aria-label="Toggle menu">&#9776;</button>

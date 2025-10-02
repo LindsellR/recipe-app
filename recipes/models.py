@@ -22,57 +22,49 @@ class Recipe(models.Model):
     # --- Core recipe fields ---
     name = models.CharField(max_length=50)
     description = models.TextField(
-        blank=True,
-        help_text="Short description of the recipe"
     )
     instructions = models.TextField(
-        blank=True,
-        help_text="Step-by-step cooking instructions"
     )
-    ingredients = models.TextField(
-        help_text="Comma-separated list of ingredients"
-    )
+    ingredients = models.TextField(help_text="Comma-separated list of ingredients")
 
     # --- Timing fields ---
     prep_time = models.PositiveIntegerField(
-        help_text="Preparation time in minutes",
-        default=5
+        help_text="Preparation time in minutes", default=5
     )
-    cooking_time = models.PositiveIntegerField(
-        help_text="Cooking time in minutes"
-    )
+    cooking_time = models.PositiveIntegerField()
 
     # --- Classification fields ---
     difficulty = models.CharField(
-        max_length=20,
-        blank=True,
-        help_text="Automatically calculated when saving"
+        max_length=20, blank=True, help_text="Automatically calculated when saving"
     )
     meal_type = models.CharField(
-        max_length=20,
-        choices=MEAL_TYPE_CHOICES,
-        default="dinner"
+        max_length=20, choices=MEAL_TYPE_CHOICES, default="dinner"
     )
 
     # --- Media and ownership ---
     pic = models.CharField(
-    max_length=100,
-    default="no_picture.jpg",
-    help_text="Filename of the recipe image in static/recipes/images/"
-)
+        max_length=100,
+        default="no_picture.jpg",
+        help_text="Filename of the recipe image in static/recipes/images/",
+    )
+
+    # For user-submitted images via URL
+    image_url = models.URLField(blank=True, null=True)
+
     created_by = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        null=True,      # allows NULL for legacy rows
-        blank=True,     # allows blank in forms
-        related_name="recipes_created"
+        null=True,  # allows NULL for legacy rows
+        blank=True,  # allows blank in forms
+        related_name="recipes_created",
     )
 
     def __str__(self):
         """Readable string representation for admin and shell."""
         formatted_ingredients = (
             ", ".join([i.strip() for i in self.ingredients.split(",")])
-            if self.ingredients else "None listed"
+            if self.ingredients
+            else "None listed"
         )
         return (
             f"{self.name} | "
@@ -90,7 +82,8 @@ class Recipe(models.Model):
         """
         num_ingredients = (
             len([i.strip() for i in self.ingredients.split(",") if i.strip()])
-            if self.ingredients else 0
+            if self.ingredients
+            else 0
         )
 
         if self.cooking_time == 0:

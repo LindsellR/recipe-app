@@ -89,7 +89,8 @@ def remove_favourite(request, recipe_id):
 @login_required
 def user_favourites(request):
     favourites = Favourite.objects.filter(user=request.user)
-    return render(request, "users/user_favourites.html", {"favourites": favourites})
+    fav_ids = set(favourites.values_list("recipe_id", flat=True))
+    return render(request, "users/user_favourites.html", {"favourites": favourites, "fav_ids": fav_ids,})
 
 
 # Profile

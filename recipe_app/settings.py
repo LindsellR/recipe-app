@@ -29,11 +29,13 @@ SECRET_KEY = os.environ.get(
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", "False") == "True"
+# DEBUG = "True"
 
 ALLOWED_HOSTS = [
     "fierce-oasis-53323.herokuapp.com",
     "fierce-oasis-53323-7bc2a4e0b203.herokuapp.com",
-    "localhost", "127.0.0.1"
+    "localhost",
+    "127.0.0.1",
 ]
 
 
@@ -132,8 +134,9 @@ USE_TZ = True
 STATIC_URL = "/static/"
 
 STATICFILES_DIRS = [
-    BASE_DIR / "static", #site images
-    BASE_DIR / "recipes" / "static"] #recipe images
+    BASE_DIR / "static",  # site images
+    BASE_DIR / "recipes" / "static",
+]  # recipe images
 
 # The absolute path to the directory where collectstatic will collect static files for deployment.
 STATIC_ROOT = BASE_DIR / "staticfiles"
